@@ -38,7 +38,7 @@ Die Tour ist in drei Abschnitte aufgeteilt:
 | 🚴 Teil 2 – Pfinztal | [Maps 🗺️](https://maps.app.goo.gl/Lzt2sL145VXShjhs9) | [⬇️ GPX herunterladen](docs/teil2_pfinztal.gpx) |
 | 🚴 Teil 3 – Zum Rhein | [Maps 🗺️](https://maps.app.goo.gl/dZFYExEyQecgXBL58) | [⬇️ GPX herunterladen](docs/teil3_zum_rhein.gpx) |
 
-> 💡 **GPX exportieren:** Route in [Google My Maps](https://mymaps.google.com) öffnen → 3-Punkte-Menü → KML/GPX exportieren → Datei als `docs/teilX_....gpx` ins Repo hochladen.
+> 💡 **Hinweis:** Die GPX-Tracks liegen im Ordner `docs/` und können direkt heruntergeladen werden.
 
 ---
 
@@ -94,9 +94,9 @@ hAITour.Pfinz.I.Pforte.bis.Rhein/
 ├─ logo_PfinzPforteRhein.png  ← Tour-Logo
 ├─ images/                    ← Fotos der Tour (Wegpunkte)
 └─ docs/
-    ├─ teil1_pfinz_pforte.gpx  ← GPX-Track Teil 1 (hochladen)
-    ├─ teil2_pfinztal.gpx      ← GPX-Track Teil 2 (hochladen)
-    └─ teil3_zum_rhein.gpx     ← GPX-Track Teil 3 (hochladen)
+    ├─ teil1_pfinz_pforte.gpx  ← GPX-Track Teil 1
+    ├─ teil2_pfinztal.gpx      ← GPX-Track Teil 2
+    └─ teil3_zum_rhein.gpx     ← GPX-Track Teil 3
 ```
 
 ---
