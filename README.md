@@ -67,13 +67,19 @@ Geplant sind **10–15 Bilder** der einzelnen Wegpunkte:
 ```text
 📁 images/
  ├─ teil1/
- │   ├─ 01_start_pfinz.jpg
- │   └─ 02_bruecke_pfinz.jpg
+ │   ├─ 01_start_pfinz.png
+ │   ├─ 02_pfinzufer.png
+ │   ├─ 03_bruecke_pfinz.png
+ │   └─ 04_wegpunkt_pforte.png
  ├─ teil2/
- │   └─ 01_ort_xy.jpg
+ │   ├─ 01_pfinztal_sued.png
+ │   ├─ 02_pfinztal_mitte.png
+ │   ├─ 03_ortsdurchfahrt.png
+ │   └─ 04_pfinztal_nord.png
  └─ teil3/
-     ├─ 01_rhein_km0.jpg
-     └─ 02_rhein_panorama.jpg
+     ├─ 01_richtung_rhein.png
+     ├─ 02_rheinradweg.png
+     └─ 03_ankunft_rhein.png
 ```
 
 ---
