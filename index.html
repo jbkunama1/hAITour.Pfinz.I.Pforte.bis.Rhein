@@ -4,335 +4,377 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>hAITour: Pfinz → Pforte → Rhein</title>
-  <meta name="description" content="Fahrradtour-Dokumentation: hAITour von der Pfinz/Pforte bis zum Rhein mit Karten, Bildern und Wegpunkten." />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" />
+  <meta name="description" content="Fahrradtour-Dokumentation: hAITour von der Pfinz/Pforte bis zum Rhein mit Karten, GPX-Tracks und Wegpunkten." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
   <style>
     :root {
       --bg: #0f172a;
-      --bg-alt: #020617;
+      --surface: #111827;
+      --surface-2: #1a2235;
+      --border: #1f2937;
       --accent: #22c55e;
-      --accent-soft: rgba(34, 197, 94, 0.15);
+      --accent-muted: rgba(34,197,94,0.15);
+      --accent-text: #bbf7d0;
+      --blue: #38bdf8;
+      --blue-muted: rgba(56,189,248,0.13);
+      --blue-text: #bae6fd;
       --text: #e5e7eb;
       --muted: #9ca3af;
-      --card: #111827;
-      --border: #1f2937;
+      --faint: #4b5563;
+      --orange: #f97316;
+      --font-body: 'DM Sans', system-ui, sans-serif;
+      --font-mono: 'DM Mono', ui-monospace, monospace;
+      --radius-sm: 0.4rem;
+      --radius-md: 0.7rem;
+      --radius-lg: 1rem;
+      --radius-xl: 1.4rem;
+      --trans: 160ms cubic-bezier(0.16,1,0.3,1);
     }
-    * { box-sizing: border-box; }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; -webkit-text-size-adjust: none; }
     body {
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: radial-gradient(circle at top, #1e293b 0, #020617 55%, #000 100%);
+      font-family: var(--font-body);
+      background: var(--bg);
       color: var(--text);
-      margin: 0;
-      padding: 0;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
+      min-height: 100dvh;
+      display: flex; flex-direction: column;
+      font-size: 1rem; line-height: 1.65;
+      background-image: radial-gradient(ellipse 80% 50% at 50% -10%, rgba(34,197,94,0.08), transparent);
     }
-    a { color: #38bdf8; text-decoration: none; }
-    a:hover { text-decoration: underline; }
+    a { color: var(--blue); text-decoration: none; transition: color var(--trans); }
+    a:hover { color: #7dd3fc; text-decoration: underline; }
+    img, svg { display: block; max-width: 100%; }
+    code {
+      font-family: var(--font-mono);
+      font-size: 0.8em;
+      background: rgba(15,23,42,0.9);
+      padding: 0.12rem 0.4rem;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border);
+    }
+
+    /* ===== HEADER ===== */
     header {
-      padding: 2rem 1.5rem 1.5rem;
-      background: linear-gradient(135deg, rgba(34, 197, 94, 0.25), rgba(59, 130, 246, 0.15));
+      background: linear-gradient(135deg, rgba(34,197,94,0.18) 0%, rgba(15,23,42,0.95) 60%);
       border-bottom: 1px solid var(--border);
-      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+      padding: 1.5rem 1.5rem 1.25rem;
     }
-    .shell { max-width: 1100px; margin: 0 auto; }
-    .title-row {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      gap: 1.2rem;
-      justify-content: space-between;
+    .shell { max-width: 1120px; margin: 0 auto; }
+    .header-inner {
+      display: flex; align-items: flex-start;
+      gap: 1.25rem; justify-content: space-between; flex-wrap: wrap;
     }
-    .logo-wrap img {
-      width: 80px;
-      height: 80px;
-      border-radius: 1rem;
-      border: 2px solid rgba(34,197,94,0.5);
-      box-shadow: 0 0 18px rgba(34,197,94,0.25);
-      object-fit: cover;
+    .header-left { display: flex; gap: 1.1rem; align-items: center; flex-wrap: wrap; }
+    .logo-img {
+      width: 72px; height: 72px;
+      border-radius: var(--radius-lg);
+      border: 2px solid rgba(34,197,94,0.45);
+      box-shadow: 0 0 22px rgba(34,197,94,0.2);
+      object-fit: cover; flex-shrink: 0;
     }
-    .title-text h1 {
-      font-size: clamp(1.7rem, 3vw, 2.4rem);
-      margin: 0;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
+    .header-text h1 {
+      font-size: clamp(1.4rem, 3vw, 2.1rem);
+      font-weight: 700; line-height: 1.2;
+      display: flex; align-items: center; gap: 0.45rem; flex-wrap: wrap;
     }
-    .subtitle {
-      margin-top: 0.5rem;
-      max-width: 650px;
-      color: var(--muted);
-      font-size: 0.96rem;
+    .header-text .sub {
+      margin-top: 0.35rem; color: var(--muted); font-size: 0.95rem; max-width: 540px;
     }
-    .badge-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.6rem;
-      margin-top: 0.75rem;
-    }
-    .badge-row img { height: 28px; }
-    .chip-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.4rem;
-      margin-top: 0.5rem;
-    }
+    .header-right { display: flex; flex-direction: column; align-items: flex-end; gap: 0.6rem; padding-top: 0.25rem; }
+    .coffee-btn img { border-radius: var(--radius-sm); display: block; }
+    .badges { display: flex; flex-wrap: wrap; gap: 0.45rem; margin-top: 0.75rem; }
+    .badges img { height: 26px; }
+    .chips { display: flex; flex-wrap: wrap; gap: 0.35rem; margin-top: 0.45rem; }
     .chip {
-      font-size: 0.78rem;
-      padding: 0.14rem 0.5rem;
-      border-radius: 999px;
-      border: 1px solid rgba(148, 163, 184, 0.4);
-      color: var(--muted);
-      background: radial-gradient(circle at top, rgba(148, 163, 184, 0.12), transparent 55%);
+      font-size: 0.75rem; padding: 0.12rem 0.55rem; border-radius: 999px;
+      border: 1px solid rgba(148,163,184,0.35); color: var(--muted);
+      background: rgba(148,163,184,0.07);
     }
+
+    /* ===== MAIN ===== */
     main { flex: 1; padding: 1.5rem; }
     .grid {
       display: grid;
-      grid-template-columns: minmax(0, 2fr) minmax(0, 1.2fr);
+      grid-template-columns: minmax(0, 2fr) minmax(0, 1.15fr);
       gap: 1.5rem;
     }
-    @media (max-width: 900px) { .grid { grid-template-columns: minmax(0, 1fr); } }
+    @media (max-width: 860px) { .grid { grid-template-columns: 1fr; } }
+
     section {
-      background: linear-gradient(145deg, rgba(15, 23, 42, 0.96), rgba(15, 23, 42, 0.85));
-      border-radius: 1.1rem;
+      background: var(--surface);
       border: 1px solid var(--border);
-      padding: 1.5rem 1.4rem;
-      box-shadow: 0 18px 60px rgba(0, 0, 0, 0.55);
+      border-radius: var(--radius-xl);
+      padding: 1.4rem 1.35rem;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.35);
     }
-    section + section { margin-top: 1rem; }
-    h2 { font-size: 1.15rem; margin-top: 0; margin-bottom: 0.8rem; display: flex; align-items: center; gap: 0.45rem; }
-    h3 { font-size: 1.02rem; margin-top: 1.2rem; margin-bottom: 0.4rem; display: flex; align-items: center; gap: 0.35rem; }
-    p { margin: 0.25rem 0 0.45rem; }
-    ul { margin: 0.15rem 0 0.4rem 1.1rem; padding: 0; }
-    li { margin-bottom: 0.2rem; }
+    section + section { margin-top: 1.1rem; }
+
+    h2 { font-size: 1.05rem; font-weight: 700; margin-bottom: 0.8rem; display: flex; align-items: center; gap: 0.4rem; }
+    h3 { font-size: 0.97rem; font-weight: 600; margin: 0 0 0.3rem; display: flex; align-items: center; gap: 0.3rem; }
+    p { margin: 0.2rem 0 0.4rem; color: var(--muted); font-size: 0.93rem; }
+    ul { margin: 0.1rem 0 0.3rem 1rem; padding: 0; }
+    li { margin-bottom: 0.18rem; font-size: 0.93rem; color: var(--muted); }
+
+    /* ===== GPX TABLE ===== */
+    .gpx-table { width: 100%; border-collapse: collapse; margin-top: 0.5rem; font-size: 0.88rem; }
+    .gpx-table th {
+      text-align: left; padding: 0.4rem 0.65rem;
+      background: rgba(34,197,94,0.1); color: var(--accent-text);
+      border-bottom: 1px solid rgba(34,197,94,0.3); font-weight: 600;
+    }
+    .gpx-table td { padding: 0.38rem 0.65rem; border-bottom: 1px solid var(--border); vertical-align: middle; }
+    .gpx-table tr:last-child td { border-bottom: none; }
+    .gpx-table tr:hover td { background: rgba(34,197,94,0.04); }
+    .btn-map {
+      display: inline-flex; align-items: center; gap: 0.28rem;
+      padding: 0.22rem 0.6rem; border-radius: 999px;
+      background: var(--blue-muted); color: var(--blue-text);
+      border: 1px solid rgba(56,189,248,0.35); font-size: 0.78rem;
+      text-decoration: none; white-space: nowrap;
+      transition: background var(--trans);
+    }
+    .btn-map:hover { background: rgba(56,189,248,0.22); text-decoration: none; color: var(--blue-text); }
+    .btn-dl {
+      display: inline-flex; align-items: center; gap: 0.28rem;
+      padding: 0.22rem 0.6rem; border-radius: 999px;
+      background: var(--accent-muted); color: var(--accent-text);
+      border: 1px solid rgba(34,197,94,0.45); font-size: 0.78rem;
+      text-decoration: none; white-space: nowrap;
+      transition: background var(--trans);
+    }
+    .btn-dl:hover { background: rgba(34,197,94,0.25); text-decoration: none; color: var(--accent-text); }
+    .gpx-hint { font-size: 0.8rem; color: var(--faint); margin-top: 0.55rem; }
+
+    /* ===== MAP CARDS ===== */
     .map-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
-      gap: 0.9rem;
-      margin-top: 0.6rem;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 0.85rem; margin-top: 0.6rem;
     }
     .card {
-      position: relative;
-      border-radius: 0.9rem;
       border: 1px solid var(--border);
-      background: radial-gradient(circle at top left, rgba(34, 197, 94, 0.07), rgba(15, 23, 42, 0.98));
-      padding: 0.8rem 0.85rem 0.9rem;
-      overflow: hidden;
+      border-radius: var(--radius-lg);
+      background: radial-gradient(circle at top left, rgba(34,197,94,0.06), var(--bg));
+      padding: 0.8rem 0.85rem 0.85rem;
     }
     .card h3 { margin-top: 0; }
     .map-thumb {
       margin-top: 0.45rem;
-      border-radius: 0.6rem;
+      border-radius: var(--radius-md);
       background: repeating-linear-gradient(135deg, #1f2937 0, #1f2937 4px, #111827 4px, #111827 8px);
-      height: 135px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--muted);
-      font-size: 0.85rem;
-      text-align: center;
-      padding: 0.75rem;
-      border: 1px solid rgba(55, 65, 81, 0.9);
-    }
-    .map-thumb span { opacity: 0.85; }
-    .tag {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.25rem;
-      font-size: 0.78rem;
-      padding: 0.16rem 0.55rem;
-      border-radius: 999px;
-      background: rgba(34, 197, 94, 0.18);
-      color: #bbf7d0;
-      border: 1px solid rgba(34, 197, 94, 0.55);
-    }
-    .pill-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.35rem;
-      padding: 0.26rem 0.7rem;
-      border-radius: 999px;
-      border: 1px solid rgba(148, 163, 184, 0.6);
-      background: rgba(15, 23, 42, 0.95);
-      font-size: 0.8rem;
-      margin-top: 0.35rem;
-    }
-    .pill-link svg { width: 0.9rem; height: 0.9rem; }
-    .gallery-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-      gap: 0.7rem;
-      margin-top: 0.4rem;
-    }
-    .placeholder-img {
-      border-radius: 0.7rem;
-      border: 1px dashed rgba(148, 163, 184, 0.7);
-      min-height: 80px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      font-size: 0.78rem;
-      color: var(--muted);
-      padding: 0.4rem;
-      text-align: center;
-      background: radial-gradient(circle at top, rgba(30, 64, 175, 0.28), rgba(15, 23, 42, 0.95));
-    }
-    code {
-      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-      font-size: 0.8rem;
-      background: rgba(15, 23, 42, 0.9);
-      padding: 0.12rem 0.4rem;
-      border-radius: 0.3rem;
+      height: 110px; display: flex; align-items: center; justify-content: center;
+      color: var(--faint); font-size: 0.78rem; text-align: center; padding: 0.5rem;
       border: 1px solid rgba(55,65,81,0.7);
     }
+    .btn-row { display: flex; gap: 0.38rem; flex-wrap: wrap; margin-top: 0.5rem; }
+
+    /* ===== GALLERY ===== */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+      gap: 0.6rem; margin-top: 0.4rem;
+    }
+    .ph-img {
+      border-radius: var(--radius-md);
+      border: 1px dashed rgba(148,163,184,0.5);
+      min-height: 76px; display: flex; align-items: center; justify-content: center;
+      font-size: 0.73rem; color: var(--faint); padding: 0.35rem; text-align: center;
+      background: radial-gradient(circle at top, rgba(30,64,175,0.2), var(--bg));
+    }
+
+    /* ===== SIDEBAR CARDS ===== */
+    .coffee-section {
+      display: flex; flex-direction: column; align-items: flex-start; gap: 0.55rem;
+    }
+    .coffee-section p { margin: 0; }
+    .coffee-section a { display: inline-block; }
+    .coffee-section img { border-radius: var(--radius-sm); }
+
+    /* ===== FOOTER ===== */
     footer {
-      padding: 1rem 1.5rem 1.6rem;
+      padding: 0.9rem 1.5rem 1.4rem;
       border-top: 1px solid var(--border);
-      background: linear-gradient(to bottom, #020617, #000);
-      color: var(--muted);
-      font-size: 0.78rem;
+      background: rgba(2,6,23,0.9);
+      color: var(--faint); font-size: 0.77rem;
     }
     .footer-inner {
-      max-width: 1100px;
-      margin: 0 auto;
-      display: flex;
-      justify-content: space-between;
-      gap: 0.75rem;
-      flex-wrap: wrap;
-      align-items: center;
+      max-width: 1120px; margin: 0 auto;
+      display: flex; justify-content: space-between;
+      gap: 0.6rem; flex-wrap: wrap; align-items: center;
     }
+    .footer-inner a { color: var(--muted); }
   </style>
 </head>
 <body>
-  <header>
-    <div class="shell">
-      <div class="title-row">
-        <div class="logo-wrap">
-          <img src="logo_PfinzPforteRhein.png" alt="hAITour Logo" />
-        </div>
-        <div class="title-text">
+
+<header>
+  <div class="shell">
+    <div class="header-inner">
+      <div class="header-left">
+        <img src="logo_PfinzPforteRhein.png" alt="hAITour Logo" class="logo-img" width="72" height="72" loading="lazy" />
+        <div class="header-text">
           <h1>hAITour: Pfinz → Pforte → Rhein 🚴‍♂️🤖</h1>
-          <p class="subtitle">
-            Eine hybride AI/Fahrradtour-Dokumentation von der Pfinz über die Pforte bis zum Rhein –
-            mit Karten, Wegpunkten und einer wachsenden Bildergalerie.
-          </p>
+          <p class="sub">Hybride AI/Fahrradtour-Dokumentation – mit Karten, GPX-Tracks und wachsender Bildergalerie.</p>
+          <div class="badges">
+            <img src="https://img.shields.io/badge/view%20on-GitHub%20Pages-blueviolet?style=for-the-badge" alt="GitHub Pages" loading="lazy" />
+            <img src="https://img.shields.io/badge/License-MIT-green.svg?style=for-the-badge" alt="MIT" loading="lazy" />
+            <img src="https://img.shields.io/badge/status-in%20tour-orange?style=for-the-badge" alt="Status" loading="lazy" />
+          </div>
+          <div class="chips">
+            <span class="chip">🚴‍♂️ Bikepacking</span>
+            <span class="chip">🗺️ Pfinz → Rhein</span>
+            <span class="chip">🤖 Hybrid AI Log</span>
+            <span class="chip">📥 GPX-Tracks</span>
+            <span class="chip">📸 10–15 Bilder</span>
+          </div>
         </div>
       </div>
-      <div class="badge-row">
-        <img src="https://img.shields.io/badge/view%20on-GitHub%20Pages-blueviolet?style=for-the-badge" alt="GitHub Pages" />
-        <img src="https://img.shields.io/badge/License-MIT-green.svg?style=for-the-badge" alt="MIT License" />
-        <img src="https://img.shields.io/badge/status-in%20tour-orange?style=for-the-badge" alt="Status" />
-      </div>
-      <div class="chip-row">
-        <span class="chip">🚴‍♂️ Bikepacking</span>
-        <span class="chip">🗺️ Pfinz → Rhein</span>
-        <span class="chip">🤖 Hybrid AI Log</span>
-        <span class="chip">📸 10–15 Bilder geplant</span>
+      <div class="header-right">
+        <a href="https://www.buymeacoffee.com/highfish" target="_blank" rel="noopener noreferrer" class="coffee-btn">
+          <img src="https://cdn.buymeacoffee.com/buttons/default-orange.png" width="150" height="34" alt="Buy me a coffee" loading="lazy" />
+        </a>
       </div>
     </div>
-  </header>
+  </div>
+</header>
 
-  <main>
-    <div class="shell grid">
-      <div>
-        <section>
-          <h2>🌍 Überblick</h2>
-          <p>
-            Diese Seite begleitet die Tour von der <strong>Pfinz</strong> über die <strong>Pforte</strong> bis zum <strong>Rhein</strong>.
-            Sie ist in drei Abschnitte gegliedert, die jeweils als eigene Route auf Google Maps hinterlegt sind.
-          </p>
-          <div class="map-grid">
-            <article class="card">
-              <h3>Teil 1 – Start Pfinz / Pforte 🌳</h3>
-              <p>Einrollen entlang der Pfinz, viel Grün und ruhige Wege.</p>
-              <div class="tag"><span>1</span> Abschnitt</div>
-              <div class="map-thumb">
-                <span>Screenshot Teil 1 → <code>images/teil1/map_part1.png</code></span>
-              </div>
-              <a class="pill-link" href="https://maps.app.goo.gl/gPDNqdz4Gan2su3x5" target="_blank" rel="noopener noreferrer">
-                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5 12L10 17L20 7" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                Teil 1 in Google Maps
-              </a>
-            </article>
-            <article class="card">
-              <h3>Teil 2 – Durch das Pfinztal 🏘️</h3>
-              <p>Verbindungsetappe mit Orten, Mischverkehr und Radwegen.</p>
-              <div class="tag"><span>2</span> Abschnitt</div>
-              <div class="map-thumb">
-                <span>Screenshot Teil 2 → <code>images/teil2/map_part2.png</code></span>
-              </div>
-              <a class="pill-link" href="https://maps.app.goo.gl/Lzt2sL145VXShjhs9" target="_blank" rel="noopener noreferrer">
-                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5 12L10 17L20 7" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                Teil 2 in Google Maps
-              </a>
-            </article>
-            <article class="card">
-              <h3>Teil 3 – Finale zum Rhein 🌊</h3>
-              <p>Letzte Etappe bis zum Rhein, mit Rheinradweg-Flair.</p>
-              <div class="tag"><span>3</span> Abschnitt</div>
-              <div class="map-thumb">
-                <span>Screenshot Teil 3 → <code>images/teil3/map_part3.png</code></span>
-              </div>
-              <a class="pill-link" href="https://maps.app.goo.gl/dZFYExEyQecgXBL58" target="_blank" rel="noopener noreferrer">
-                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5 12L10 17L20 7" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                Teil 3 in Google Maps
-              </a>
-            </article>
-          </div>
-        </section>
+<main>
+  <div class="shell grid">
 
-        <section>
-          <h2>📸 Geplante Bildergalerie</h2>
-          <p>10–15 Fotos der Wegpunkte, sortiert nach Abschnitten (<code>images/teil1</code>, <code>images/teil2</code>, <code>images/teil3</code>).</p>
-          <div class="gallery-grid">
-            <div class="placeholder-img">01 – Start Pfinz / Pforte</div>
-            <div class="placeholder-img">02 – Brücke / Punkt Teil 1</div>
-            <div class="placeholder-img">03 – Ort in Teil 2</div>
-            <div class="placeholder-img">04 – Einfahrt Rheinradweg</div>
-            <div class="placeholder-img">05 – Ankunft am Rhein</div>
-            <div class="placeholder-img">weitere Impressionen …</div>
-          </div>
-          <p style="margin-top:0.5rem; font-size:0.85rem; color:var(--muted);">Platzhalter durch <code>&lt;img src="..."&gt;</code> ersetzen, sobald Fotos hochgeladen sind.</p>
-        </section>
-      </div>
+    <div>
+      <!-- GPX TABLE -->
+      <section>
+        <h2>📥 GPX-Tracks herunterladen</h2>
+        <table class="gpx-table">
+          <thead>
+            <tr>
+              <th>Abschnitt</th>
+              <th>Google Maps</th>
+              <th>GPX Download</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>🚴 Teil 1 – Pfinz / Pforte</td>
+              <td><a class="btn-map" href="https://maps.app.goo.gl/gPDNqdz4Gan2su3x5" target="_blank" rel="noopener">🗺️ Maps öffnen</a></td>
+              <td><a class="btn-dl" href="docs/teil1_pfinz_pforte.gpx" download>⬇️ GPX</a></td>
+            </tr>
+            <tr>
+              <td>🚴 Teil 2 – Pfinztal</td>
+              <td><a class="btn-map" href="https://maps.app.goo.gl/Lzt2sL145VXShjhs9" target="_blank" rel="noopener">🗺️ Maps öffnen</a></td>
+              <td><a class="btn-dl" href="docs/teil2_pfinztal.gpx" download>⬇️ GPX</a></td>
+            </tr>
+            <tr>
+              <td>🚴 Teil 3 – Zum Rhein</td>
+              <td><a class="btn-map" href="https://maps.app.goo.gl/dZFYExEyQecgXBL58" target="_blank" rel="noopener">🗺️ Maps öffnen</a></td>
+              <td><a class="btn-dl" href="docs/teil3_zum_rhein.gpx" download>⬇️ GPX</a></td>
+            </tr>
+          </tbody>
+        </table>
+        <p class="gpx-hint">💡 GPX exportieren: Route in <a href="https://mymaps.google.com" target="_blank" rel="noopener">Google My Maps</a> öffnen → 3-Punkte-Menü → KML/GPX exportieren → als <code>docs/teilX_....gpx</code> hochladen.</p>
+      </section>
 
-      <div>
-        <section>
-          <h2>🧱 Repo & Struktur</h2>
-          <ul>
-            <li><code>README.md</code> – Projektbeschreibung</li>
-            <li><code>index.html</code> – diese GitHub Pages Seite</li>
-            <li><code>logo_PfinzPforteRhein.png</code> – Tour-Logo</li>
-            <li><code>images/</code> – Bilder & Kartenausschnitte</li>
-            <li><code>docs/</code> – GPX/KML, Banner etc.</li>
-          </ul>
-        </section>
+      <!-- MAP CARDS -->
+      <section>
+        <h2>🌍 Karten & Abschnitte</h2>
+        <p>Die Tour von der <strong style="color:var(--text)">Pfinz</strong> über die <strong style="color:var(--text)">Pforte</strong> bis zum <strong style="color:var(--text)">Rhein</strong> in drei Etappen.</p>
+        <div class="map-grid">
+          <article class="card">
+            <h3>Teil 1 – Pfinz / Pforte 🌳</h3>
+            <p>Einrollen entlang der Pfinz, viel Grün und ruhige Wege.</p>
+            <div class="map-thumb"><span>Screenshot → <code>images/teil1/map_part1.png</code></span></div>
+            <div class="btn-row">
+              <a class="btn-map" href="https://maps.app.goo.gl/gPDNqdz4Gan2su3x5" target="_blank" rel="noopener">🗺️ Maps</a>
+              <a class="btn-dl" href="docs/teil1_pfinz_pforte.gpx" download>⬇️ GPX</a>
+            </div>
+          </article>
+          <article class="card">
+            <h3>Teil 2 – Pfinztal 🏘️</h3>
+            <p>Verbindungsetappe mit kleinen Orten, Mischverkehr und Radwegen.</p>
+            <div class="map-thumb"><span>Screenshot → <code>images/teil2/map_part2.png</code></span></div>
+            <div class="btn-row">
+              <a class="btn-map" href="https://maps.app.goo.gl/Lzt2sL145VXShjhs9" target="_blank" rel="noopener">🗺️ Maps</a>
+              <a class="btn-dl" href="docs/teil2_pfinztal.gpx" download>⬇️ GPX</a>
+            </div>
+          </article>
+          <article class="card">
+            <h3>Teil 3 – Zum Rhein 🌊</h3>
+            <p>Letzte Etappe bis zum Rhein, mit Rheinradweg-Flair.</p>
+            <div class="map-thumb"><span>Screenshot → <code>images/teil3/map_part3.png</code></span></div>
+            <div class="btn-row">
+              <a class="btn-map" href="https://maps.app.goo.gl/dZFYExEyQecgXBL58" target="_blank" rel="noopener">🗺️ Maps</a>
+              <a class="btn-dl" href="docs/teil3_zum_rhein.gpx" download>⬇️ GPX</a>
+            </div>
+          </article>
+        </div>
+      </section>
 
-        <section>
-          <h2>✅ Todo-Liste</h2>
-          <ul>
-            <li>GitHub Pages aktivieren (Settings → Pages → Branch <code>main</code>, Root)</li>
-            <li>Kartenscreenshots in <code>images/</code> ablegen und einbinden</li>
-            <li>10–15 Fotos hochladen und Galerie vervollständigen</li>
-            <li>Optional: GPX/KML unter <code>docs/</code> speichern</li>
-          </ul>
-        </section>
-
-        <section>
-          <h2>📄 Lizenz</h2>
-          <p>Code unter <strong>MIT-Lizenz</strong>. Eigene Fotos und Medien kannst du separat lizenzieren.</p>
-        </section>
-      </div>
+      <!-- GALLERY -->
+      <section>
+        <h2>📸 Bildergalerie</h2>
+        <p>10–15 Fotos der Wegpunkte – sortiert nach Abschnitten in <code>images/teil1</code>, <code>images/teil2</code>, <code>images/teil3</code>.</p>
+        <div class="gallery-grid">
+          <div class="ph-img">01 – Start Pfinz</div>
+          <div class="ph-img">02 – Brücke Teil 1</div>
+          <div class="ph-img">03 – Ort in Teil 2</div>
+          <div class="ph-img">04 – Rheinradweg</div>
+          <div class="ph-img">05 – Ankunft Rhein</div>
+          <div class="ph-img">+ weitere…</div>
+        </div>
+        <p style="margin-top:0.5rem; font-size:0.82rem;">Platzhalter durch <code>&lt;img src="..." alt="..."&gt;</code> ersetzen, sobald Fotos hochgeladen sind.</p>
+      </section>
     </div>
-  </main>
 
-  <footer>
-    <div class="footer-inner">
-      <span>hAITour · Pfinz → Pforte → Rhein · MIT License</span>
-      <span>Host: GitHub Pages · Repo: <a href="https://github.com/jbkunama1/hAITour.Pfinz.I.Pforte.bis.Rhein" target="_blank" rel="noopener noreferrer">jbkunama1/hAITour.Pfinz.I.Pforte.bis.Rhein</a></span>
+    <!-- SIDEBAR -->
+    <div>
+      <section>
+        <h2>☕ Tour unterstützen</h2>
+        <div class="coffee-section">
+          <p>Hat dir die Tour oder das Repo gefallen? Gönn mir einen Kaffee 😄</p>
+          <a href="https://www.buymeacoffee.com/highfish" target="_blank" rel="noopener noreferrer">
+            <img src="https://cdn.buymeacoffee.com/buttons/default-orange.png" width="160" height="36" alt="Buy me a coffee" loading="lazy" style="border-radius: 0.4rem;" />
+          </a>
+        </div>
+      </section>
+
+      <section>
+        <h2>🧱 Repo & Struktur</h2>
+        <ul>
+          <li><code>README.md</code> – Projektbeschreibung</li>
+          <li><code>index.html</code> – diese Seite</li>
+          <li><code>logo_PfinzPforteRhein.png</code> – Logo</li>
+          <li><code>images/</code> – Fotos der Wegpunkte</li>
+          <li><code>docs/*.gpx</code> – GPX-Tracks (bitte hochladen)</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>✅ Todo-Liste</h2>
+        <ul>
+          <li>GitHub Pages aktivieren (Settings → Pages → Branch <code>main</code>)</li>
+          <li>GPX-Dateien exportieren und in <code>docs/</code> ablegen</li>
+          <li>Kartenscreenshots einbinden</li>
+          <li>10–15 Fotos hochladen und Galerie ausbauen</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>📄 Lizenz</h2>
+        <p>Code: <strong style="color:var(--text)">MIT-Lizenz</strong>. Eigene Fotos können separat lizenziert werden.</p>
+      </section>
     </div>
-  </footer>
+
+  </div>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <span>hAITour · Pfinz → Pforte → Rhein · MIT License</span>
+    <span><a href="https://github.com/jbkunama1/hAITour.Pfinz.I.Pforte.bis.Rhein" target="_blank" rel="noopener noreferrer">jbkunama1/hAITour.Pfinz.I.Pforte.bis.Rhein</a></span>
+  </div>
+</footer>
+
 </body>
 </html>
