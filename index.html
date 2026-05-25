@@ -16,7 +16,6 @@
       --muted: #9ca3af;
       --card: #111827;
       --border: #1f2937;
-      --danger: #f97373;
     }
     * { box-sizing: border-box; }
     body {
@@ -32,28 +31,39 @@
     a { color: #38bdf8; text-decoration: none; }
     a:hover { text-decoration: underline; }
     header {
-      padding: 2.5rem 1.5rem 1.5rem;
+      padding: 2rem 1.5rem 1.5rem;
       background: linear-gradient(135deg, rgba(34, 197, 94, 0.25), rgba(59, 130, 246, 0.15));
       border-bottom: 1px solid var(--border);
       box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
     }
-    .shell {
-      max-width: 1100px;
-      margin: 0 auto;
-    }
+    .shell { max-width: 1100px; margin: 0 auto; }
     .title-row {
       display: flex;
       flex-wrap: wrap;
       align-items: center;
-      gap: 1rem;
+      gap: 1.2rem;
       justify-content: space-between;
     }
-    h1 {
-      font-size: clamp(2rem, 3vw, 2.6rem);
+    .logo-wrap img {
+      width: 80px;
+      height: 80px;
+      border-radius: 1rem;
+      border: 2px solid rgba(34,197,94,0.5);
+      box-shadow: 0 0 18px rgba(34,197,94,0.25);
+      object-fit: cover;
+    }
+    .title-text h1 {
+      font-size: clamp(1.7rem, 3vw, 2.4rem);
       margin: 0;
       display: flex;
       align-items: center;
-      gap: 0.6rem;
+      gap: 0.5rem;
+    }
+    .subtitle {
+      margin-top: 0.5rem;
+      max-width: 650px;
+      color: var(--muted);
+      font-size: 0.96rem;
     }
     .badge-row {
       display: flex;
@@ -61,59 +71,12 @@
       gap: 0.6rem;
       margin-top: 0.75rem;
     }
-    .badge-row img {
-      height: 28px;
-    }
-    .subtitle {
-      margin-top: 0.75rem;
-      max-width: 650px;
-      color: var(--muted);
-      font-size: 0.98rem;
-    }
-    main {
-      flex: 1;
-      padding: 1.5rem;
-    }
-    .grid {
-      display: grid;
-      grid-template-columns: minmax(0, 2fr) minmax(0, 1.2fr);
-      gap: 1.5rem;
-    }
-    @media (max-width: 900px) {
-      .grid { grid-template-columns: minmax(0, 1fr); }
-    }
-    section {
-      background: linear-gradient(145deg, rgba(15, 23, 42, 0.96), rgba(15, 23, 42, 0.85));
-      border-radius: 1.1rem;
-      border: 1px solid var(--border);
-      padding: 1.5rem 1.4rem;
-      box-shadow: 0 18px 60px rgba(0, 0, 0, 0.55);
-    }
-    section + section { margin-top: 1rem; }
-    h2 {
-      font-size: 1.15rem;
-      margin-top: 0;
-      margin-bottom: 0.8rem;
-      display: flex;
-      align-items: center;
-      gap: 0.45rem;
-    }
-    h3 {
-      font-size: 1.02rem;
-      margin-top: 1.2rem;
-      margin-bottom: 0.4rem;
-      display: flex;
-      align-items: center;
-      gap: 0.35rem;
-    }
-    p { margin: 0.25rem 0 0.45rem; }
-    ul { margin: 0.15rem 0 0.4rem 1.1rem; padding: 0; }
-    li { margin-bottom: 0.2rem; }
+    .badge-row img { height: 28px; }
     .chip-row {
       display: flex;
       flex-wrap: wrap;
       gap: 0.4rem;
-      margin-top: 0.3rem;
+      margin-top: 0.5rem;
     }
     .chip {
       font-size: 0.78rem;
@@ -123,6 +86,26 @@
       color: var(--muted);
       background: radial-gradient(circle at top, rgba(148, 163, 184, 0.12), transparent 55%);
     }
+    main { flex: 1; padding: 1.5rem; }
+    .grid {
+      display: grid;
+      grid-template-columns: minmax(0, 2fr) minmax(0, 1.2fr);
+      gap: 1.5rem;
+    }
+    @media (max-width: 900px) { .grid { grid-template-columns: minmax(0, 1fr); } }
+    section {
+      background: linear-gradient(145deg, rgba(15, 23, 42, 0.96), rgba(15, 23, 42, 0.85));
+      border-radius: 1.1rem;
+      border: 1px solid var(--border);
+      padding: 1.5rem 1.4rem;
+      box-shadow: 0 18px 60px rgba(0, 0, 0, 0.55);
+    }
+    section + section { margin-top: 1rem; }
+    h2 { font-size: 1.15rem; margin-top: 0; margin-bottom: 0.8rem; display: flex; align-items: center; gap: 0.45rem; }
+    h3 { font-size: 1.02rem; margin-top: 1.2rem; margin-bottom: 0.4rem; display: flex; align-items: center; gap: 0.35rem; }
+    p { margin: 0.25rem 0 0.45rem; }
+    ul { margin: 0.15rem 0 0.4rem 1.1rem; padding: 0; }
+    li { margin-bottom: 0.2rem; }
     .map-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
@@ -151,7 +134,6 @@
       text-align: center;
       padding: 0.75rem;
       border: 1px solid rgba(55, 65, 81, 0.9);
-      box-shadow: inset 0 0 0 1px rgba(15, 23, 42, 0.9);
     }
     .map-thumb span { opacity: 0.85; }
     .tag {
@@ -165,7 +147,6 @@
       color: #bbf7d0;
       border: 1px solid rgba(34, 197, 94, 0.55);
     }
-    .tag span { font-size: 0.9rem; }
     .pill-link {
       display: inline-flex;
       align-items: center;
@@ -199,17 +180,17 @@
       background: radial-gradient(circle at top, rgba(30, 64, 175, 0.28), rgba(15, 23, 42, 0.95));
     }
     code {
-      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
       font-size: 0.8rem;
       background: rgba(15, 23, 42, 0.9);
       padding: 0.12rem 0.4rem;
       border-radius: 0.3rem;
-      border: 1px solid rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(55,65,81,0.7);
     }
     footer {
       padding: 1rem 1.5rem 1.6rem;
       border-top: 1px solid var(--border);
-      background: linear-gradient(to bottom, #020617, #020617 60%, #000 100%);
+      background: linear-gradient(to bottom, #020617, #000);
       color: var(--muted);
       font-size: 0.78rem;
     }
@@ -228,17 +209,21 @@
   <header>
     <div class="shell">
       <div class="title-row">
-        <div>
+        <div class="logo-wrap">
+          <img src="logo_PfinzPforteRhein.png" alt="hAITour Logo" />
+        </div>
+        <div class="title-text">
           <h1>hAITour: Pfinz → Pforte → Rhein 🚴‍♂️🤖</h1>
           <p class="subtitle">
-            Eine hybride AI/Fahrradtour-Dokumentation von der Pfinz über die Pforte bis zum Rhein – mit Karten, Wegpunkten und später einer Bildergalerie.
+            Eine hybride AI/Fahrradtour-Dokumentation von der Pfinz über die Pforte bis zum Rhein –
+            mit Karten, Wegpunkten und einer wachsenden Bildergalerie.
           </p>
         </div>
       </div>
       <div class="badge-row">
-        <img src="https://img.shields.io/badge/view%20on-GitHub%20Pages-blueviolet?style=for-the-badge" alt="View on GitHub Pages" />
+        <img src="https://img.shields.io/badge/view%20on-GitHub%20Pages-blueviolet?style=for-the-badge" alt="GitHub Pages" />
         <img src="https://img.shields.io/badge/License-MIT-green.svg?style=for-the-badge" alt="MIT License" />
-        <img src="https://img.shields.io/badge/status-in%20tour-orange?style=for-the-badge" alt="Status in Tour" />
+        <img src="https://img.shields.io/badge/status-in%20tour-orange?style=for-the-badge" alt="Status" />
       </div>
       <div class="chip-row">
         <span class="chip">🚴‍♂️ Bikepacking</span>
@@ -255,52 +240,44 @@
         <section>
           <h2>🌍 Überblick</h2>
           <p>
-            Diese Seite begleitet die Tour von der <strong>Pfinz</strong> über die <strong>Pforte</strong> bis zum <strong>Rhein</strong>. Sie ist in drei Abschnitte gegliedert,
-            die jeweils als eigene Route auf Google Maps hinterlegt sind.
+            Diese Seite begleitet die Tour von der <strong>Pfinz</strong> über die <strong>Pforte</strong> bis zum <strong>Rhein</strong>.
+            Sie ist in drei Abschnitte gegliedert, die jeweils als eigene Route auf Google Maps hinterlegt sind.
           </p>
           <div class="map-grid">
             <article class="card">
-              <h3>Teil 1 – Start an der Pfinz / Pforte 🌳</h3>
-              <p>Einrollen entlang der Pfinz, viel Grün und ruhige Wege zum Warmwerden.</p>
+              <h3>Teil 1 – Start Pfinz / Pforte 🌳</h3>
+              <p>Einrollen entlang der Pfinz, viel Grün und ruhige Wege.</p>
               <div class="tag"><span>1</span> Abschnitt</div>
               <div class="map-thumb">
-                <span>Kartenausschnitt / Screenshot von Teil&nbsp;1 hier platzieren (z.B. <code>images/teil1/map_part1.png</code>).</span>
+                <span>Screenshot Teil 1 → <code>images/teil1/map_part1.png</code></span>
               </div>
               <a class="pill-link" href="https://maps.app.goo.gl/gPDNqdz4Gan2su3x5" target="_blank" rel="noopener noreferrer">
-                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M5 12L10 17L20 7" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-                Teil 1 in Google Maps öffnen
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5 12L10 17L20 7" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                Teil 1 in Google Maps
               </a>
             </article>
-
             <article class="card">
               <h3>Teil 2 – Durch das Pfinztal 🏘️</h3>
-              <p>Verbindungsetappe mit kleinen Orten, Mischverkehr und Radwegen Richtung Rhein.</p>
+              <p>Verbindungsetappe mit Orten, Mischverkehr und Radwegen.</p>
               <div class="tag"><span>2</span> Abschnitt</div>
               <div class="map-thumb">
-                <span>Kartenausschnitt für Teil&nbsp;2 hinzufügen (z.B. <code>images/teil2/map_part2.png</code>).</span>
+                <span>Screenshot Teil 2 → <code>images/teil2/map_part2.png</code></span>
               </div>
               <a class="pill-link" href="https://maps.app.goo.gl/Lzt2sL145VXShjhs9" target="_blank" rel="noopener noreferrer">
-                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M5 12L10 17L20 7" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-                Teil 2 in Google Maps öffnen
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5 12L10 17L20 7" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                Teil 2 in Google Maps
               </a>
             </article>
-
             <article class="card">
               <h3>Teil 3 – Finale zum Rhein 🌊</h3>
-              <p>Letzte Etappe bis zum Rhein, mit Rheinradweg-Flair und Ziel-Foto-Spot.</p>
+              <p>Letzte Etappe bis zum Rhein, mit Rheinradweg-Flair.</p>
               <div class="tag"><span>3</span> Abschnitt</div>
               <div class="map-thumb">
-                <span>Kartenausschnitt für Teil&nbsp;3 einfügen (z.B. <code>images/teil3/map_part3.png</code>).</span>
+                <span>Screenshot Teil 3 → <code>images/teil3/map_part3.png</code></span>
               </div>
               <a class="pill-link" href="https://maps.app.goo.gl/dZFYExEyQecgXBL58" target="_blank" rel="noopener noreferrer">
-                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M5 12L10 17L20 7" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-                Teil 3 in Google Maps öffnen
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5 12L10 17L20 7" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                Teil 3 in Google Maps
               </a>
             </article>
           </div>
@@ -308,56 +285,44 @@
 
         <section>
           <h2>📸 Geplante Bildergalerie</h2>
-          <p>
-            Du kannst später 10–15 Bilder anlegen, idealerweise in einem strukturierten Ordnersystem. Vorschlag:
-          </p>
-          <p><code>images/teil1</code>, <code>images/teil2</code>, <code>images/teil3</code> mit sprechenden Dateinamen.</p>
+          <p>10–15 Fotos der Wegpunkte, sortiert nach Abschnitten (<code>images/teil1</code>, <code>images/teil2</code>, <code>images/teil3</code>).</p>
           <div class="gallery-grid">
-            <div class="placeholder-img">01 – Start an der Pfinz / Pforte</div>
-            <div class="placeholder-img">02 – Brücke / markanter Punkt in Teil 1</div>
-            <div class="placeholder-img">03 – Ort / Abschnitt in Teil 2</div>
-            <div class="placeholder-img">04 – Einfahrt zum Rheinradweg</div>
-            <div class="placeholder-img">05 – Ankunft am Rhein / Panorama</div>
-            <div class="placeholder-img">weitere Slots für Impressionen …</div>
+            <div class="placeholder-img">01 – Start Pfinz / Pforte</div>
+            <div class="placeholder-img">02 – Brücke / Punkt Teil 1</div>
+            <div class="placeholder-img">03 – Ort in Teil 2</div>
+            <div class="placeholder-img">04 – Einfahrt Rheinradweg</div>
+            <div class="placeholder-img">05 – Ankunft am Rhein</div>
+            <div class="placeholder-img">weitere Impressionen …</div>
           </div>
-          <p style="margin-top:0.5rem; font-size:0.85rem; color:var(--muted);">
-            Sobald die echten Fotos vorhanden sind, kannst du die Platzhalter durch <code>&lt;img src="..." alt="..." /&gt;</code> Tags ersetzen.
-          </p>
+          <p style="margin-top:0.5rem; font-size:0.85rem; color:var(--muted);">Platzhalter durch <code>&lt;img src="..."&gt;</code> ersetzen, sobald Fotos hochgeladen sind.</p>
         </section>
       </div>
 
       <div>
         <section>
           <h2>🧱 Repo & Struktur</h2>
-          <p>Das Repository ist so gedacht, dass es Tour, Karten und Medien bündelt:</p>
           <ul>
-            <li><code>README.md</code> – Projektbeschreibung (GitHub-Ansicht)</li>
-            <li><code>index.html</code> – diese GitHub-Pages-Seite</li>
+            <li><code>README.md</code> – Projektbeschreibung</li>
+            <li><code>index.html</code> – diese GitHub Pages Seite</li>
+            <li><code>logo_PfinzPforteRhein.png</code> – Tour-Logo</li>
             <li><code>images/</code> – Bilder & Kartenausschnitte</li>
-            <li><code>docs/</code> – optional: GPX/KML, Banner etc.</li>
+            <li><code>docs/</code> – GPX/KML, Banner etc.</li>
           </ul>
         </section>
 
         <section>
-          <h2>✅ Todo-Liste für dich</h2>
+          <h2>✅ Todo-Liste</h2>
           <ul>
-            <li>GitHub Pages in den Repo-Settings aktivieren (Branch <code>main</code>, Root).</li>
-            <li>Kartenscreenshots aus den drei Google-Maps-Links erstellen und in <code>images/</code> ablegen.</li>
-            <li>10–15 Fotos der Wegpunkte aufnehmen und in die Galerie integrieren.</li>
-            <li>Optional: GPX/KML-Tracks exportieren und unter <code>docs/</code> speichern.</li>
+            <li>GitHub Pages aktivieren (Settings → Pages → Branch <code>main</code>, Root)</li>
+            <li>Kartenscreenshots in <code>images/</code> ablegen und einbinden</li>
+            <li>10–15 Fotos hochladen und Galerie vervollständigen</li>
+            <li>Optional: GPX/KML unter <code>docs/</code> speichern</li>
           </ul>
         </section>
 
         <section>
           <h2>📄 Lizenz</h2>
-          <p>
-            Der Code dieser Seite steht unter der <strong>MIT-Lizenz</strong>. Für eigene Bilder und Medien kannst du in der
-            <code>README.md</code> ergänzen, unter welcher Lizenz du sie veröffentlichen möchtest.
-          </p>
-          <p style="font-size:0.86rem; color:var(--muted);">
-            Tipp: Wenn du die Tour im Unterricht oder in Workshops nutzt, kannst du hier später auch Reflexionsfragen,
-            Hinweise zu Verkehrssicherheit und Medienkompetenz ergänzen.
-          </p>
+          <p>Code unter <strong>MIT-Lizenz</strong>. Eigene Fotos und Medien kannst du separat lizenzieren.</p>
         </section>
       </div>
     </div>

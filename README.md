@@ -1,6 +1,8 @@
 # hAITour: Pfinz → Pforte → Rhein 🚴‍♂️🌊
 
-![Tour Banner](docs/banner.png)
+<p align="center">
+  <img src="logo_PfinzPforteRhein.png" alt="hAITour Logo" width="220" />
+</p>
 
 ![GitHub Pages](https://img.shields.io/badge/view%20on-GitHub%20Pages-blueviolet?style=for-the-badge)
 ![License: MIT](https://img.shields.io/badge/License-MIT-green.svg?style=for-the-badge)
@@ -44,7 +46,6 @@ Die zugehörige GitHub Pages Seite (inkl. Karten-Ausschnitte und Bilder der Wegp
 - Ziel: Rhein-Nähe / Rheinradweg 🌊
 - Route als Link: [Teil 3 auf Google Maps](https://maps.app.goo.gl/dZFYExEyQecgXBL58)
 
-
 ---
 
 ## 🖼️ Bilder & Medien
@@ -79,11 +80,12 @@ Diese Bilder werden später in `index.html` als Galerie eingebunden.
 
 ```text
 hAITour.Pfinz.I.Pforte.bis.Rhein/
-├─ README.md          ← diese Datei
-├─ index.html         ← GitHub Pages Startseite
-├─ LICENSE            ← MIT Lizenz
-├─ images/            ← Bilder der Tour (Wegpunkte, Panorama, etc.)
-└─ docs/              ← optionale zusätzliche Dokumente (z.B. GPX, Banner)
+├─ README.md                  ← diese Datei
+├─ index.html                 ← GitHub Pages Startseite
+├─ LICENSE                    ← MIT Lizenz
+├─ logo_PfinzPforteRhein.png  ← Tour-Logo
+├─ images/                    ← Bilder der Tour (Wegpunkte, Panorama, etc.)
+└─ docs/                      ← optionale zusätzliche Dokumente (z.B. GPX, Banner)
 ```
 
 ---
