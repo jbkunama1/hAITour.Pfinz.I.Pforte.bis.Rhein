@@ -101,24 +101,6 @@ hAITour.Pfinz.I.Pforte.bis.Rhein/
 
 ---
 
-## 🚀 GitHub Pages
-
-- Branch: `main`, Seite: `index.html`
-- URL: `https://jbkunama1.github.io/hAITour.Pfinz.I.Pforte.bis.Rhein/`
-- Aktivieren: Repo Settings → Pages → Branch `main`, Ordner `/root`
-
----
-
-## 📌 Todo-Liste
-
-- [ ] GitHub Pages aktivieren
-- [ ] GPX-Dateien exportieren und in `docs/` ablegen
-- [ ] Kartenausschnitte (Screenshots) der drei Teile hinzufügen
-- [ ] 10–15 Bilder der Wegpunkte in `images/` hochladen
-- [ ] Bilder-Galerie in `index.html` vervollständigen
-
----
-
 ## 📄 Lizenz
 
 Dieses Projekt steht unter der **MIT-Lizenz**. Details siehe [`LICENSE`](LICENSE).
