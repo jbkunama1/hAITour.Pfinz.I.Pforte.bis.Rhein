@@ -171,18 +171,93 @@
     .btn-row { display: flex; gap: 0.38rem; flex-wrap: wrap; margin-top: 0.5rem; }
 
     /* ===== GALLERY ===== */
+    .gallery-section { margin-top: 1.1rem; }
+    .gallery-label {
+      display: flex; align-items: center; gap: 0.45rem;
+      font-size: 0.82rem; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.08em; margin-bottom: 0.55rem; margin-top: 0.9rem;
+    }
+    .gallery-label span.dot {
+      width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0;
+    }
+    .dot-green { background: #22c55e; box-shadow: 0 0 6px #22c55e88; }
+    .dot-blue  { background: #38bdf8; box-shadow: 0 0 6px #38bdf888; }
+    .dot-red   { background: #f87171; box-shadow: 0 0 6px #f8717188; }
+
     .gallery-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
-      gap: 0.6rem; margin-top: 0.4rem;
+      grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+      gap: 0.55rem;
     }
-    .ph-img {
+    .gallery-item {
+      position: relative;
       border-radius: var(--radius-md);
-      border: 1px dashed rgba(148,163,184,0.5);
-      min-height: 76px; display: flex; align-items: center; justify-content: center;
-      font-size: 0.73rem; color: var(--faint); padding: 0.35rem; text-align: center;
-      background: radial-gradient(circle at top, rgba(30,64,175,0.2), var(--bg));
+      overflow: hidden;
+      cursor: pointer;
+      aspect-ratio: 4/3;
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      transition: transform var(--trans), box-shadow var(--trans);
     }
+    .gallery-item:hover {
+      transform: scale(1.03);
+      box-shadow: 0 8px 28px rgba(0,0,0,0.55);
+    }
+    .gallery-item img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: filter var(--trans);
+    }
+    .gallery-item:hover img { filter: brightness(1.08); }
+    .gallery-item .overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.65) 0%, transparent 55%);
+      opacity: 0; transition: opacity var(--trans);
+      display: flex; align-items: flex-end; padding: 0.4rem 0.5rem;
+    }
+    .gallery-item:hover .overlay { opacity: 1; }
+    .overlay-label {
+      font-size: 0.7rem; color: #fff; font-weight: 500; line-height: 1.2;
+    }
+
+    /* ===== LIGHTBOX ===== */
+    #lightbox {
+      display: none; position: fixed; inset: 0; z-index: 9999;
+      background: rgba(0,0,0,0.92); backdrop-filter: blur(6px);
+      align-items: center; justify-content: center; flex-direction: column;
+      padding: 1.5rem;
+    }
+    #lightbox.open { display: flex; }
+    #lightbox img {
+      max-width: min(90vw, 900px); max-height: 80vh;
+      border-radius: var(--radius-lg);
+      box-shadow: 0 24px 80px rgba(0,0,0,0.8);
+      object-fit: contain;
+    }
+    #lb-caption {
+      margin-top: 0.9rem; color: #d1d5db; font-size: 0.9rem; text-align: center;
+    }
+    #lb-close {
+      position: fixed; top: 1.1rem; right: 1.3rem;
+      background: rgba(255,255,255,0.12); color: #fff;
+      border: none; border-radius: 50%; width: 38px; height: 38px;
+      font-size: 1.2rem; cursor: pointer; display: flex;
+      align-items: center; justify-content: center;
+      transition: background var(--trans);
+    }
+    #lb-close:hover { background: rgba(255,255,255,0.25); }
+    #lb-nav {
+      display: flex; gap: 1.2rem; margin-top: 0.75rem;
+    }
+    .lb-btn {
+      background: rgba(255,255,255,0.1); color: #fff;
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 999px; padding: 0.3rem 1.1rem;
+      cursor: pointer; font-size: 0.88rem;
+      transition: background var(--trans);
+    }
+    .lb-btn:hover { background: rgba(255,255,255,0.22); }
 
     /* ===== SIDEBAR CARDS ===== */
     .coffee-section {
@@ -216,7 +291,7 @@
         <img src="logo_PfinzPforteRhein.png" alt="hAITour Logo" class="logo-img" width="72" height="72" loading="lazy" />
         <div class="header-text">
           <h1>hAITour: Pfinz → Pforte → Rhein 🚴‍♂️🤖</h1>
-          <p class="sub">Hybride AI/Fahrradtour-Dokumentation – mit Karten, GPX-Tracks und wachsender Bildergalerie.</p>
+          <p class="sub">Hybride AI/Fahrradtour-Dokumentation – mit Karten, GPX-Tracks und Bildergalerie.</p>
           <div class="badges">
             <img src="https://img.shields.io/badge/view%20on-GitHub%20Pages-blueviolet?style=for-the-badge" alt="GitHub Pages" loading="lazy" />
             <img src="https://img.shields.io/badge/License-MIT-green.svg?style=for-the-badge" alt="MIT" loading="lazy" />
@@ -227,7 +302,7 @@
             <span class="chip">🗺️ Pfinz → Rhein</span>
             <span class="chip">🤖 Hybrid AI Log</span>
             <span class="chip">📥 GPX-Tracks</span>
-            <span class="chip">📸 10–15 Bilder</span>
+            <span class="chip">📸 11 Fotos</span>
           </div>
         </div>
       </div>
@@ -312,18 +387,77 @@
       </section>
 
       <!-- GALLERY -->
-      <section>
-        <h2>📸 Bildergalerie</h2>
-        <p>10–15 Fotos der Wegpunkte – sortiert nach Abschnitten in <code>images/teil1</code>, <code>images/teil2</code>, <code>images/teil3</code>.</p>
-        <div class="gallery-grid">
-          <div class="ph-img">01 – Start Pfinz</div>
-          <div class="ph-img">02 – Brücke Teil 1</div>
-          <div class="ph-img">03 – Ort in Teil 2</div>
-          <div class="ph-img">04 – Rheinradweg</div>
-          <div class="ph-img">05 – Ankunft Rhein</div>
-          <div class="ph-img">+ weitere…</div>
+      <section class="gallery-section">
+        <h2>📸 Bildergalerie der Tour</h2>
+        <p>Klicke auf ein Bild für die Vollansicht. 11 Fotos aus allen drei Abschnitten.</p>
+
+        <!-- Teil 1 -->
+        <div class="gallery-label">
+          <span class="dot dot-green"></span>
+          <span style="color:#bbf7d0;">Teil 1 – Pfinz zur Pforte</span>
         </div>
-        <p style="margin-top:0.5rem; font-size:0.82rem;">Platzhalter durch <code>&lt;img src="..." alt="..."&gt;</code> ersetzen, sobald Fotos hochgeladen sind.</p>
+        <div class="gallery-grid">
+          <div class="gallery-item" onclick="openLightbox(0)">
+            <img src="images/teil1/01_start_pfinz.png" alt="Start an der Pfinz" loading="lazy" width="400" height="300" />
+            <div class="overlay"><span class="overlay-label">Start Pfinz</span></div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(1)">
+            <img src="images/teil1/02_pfinzufer.png" alt="Pfinzufer" loading="lazy" width="400" height="300" />
+            <div class="overlay"><span class="overlay-label">Pfinzufer</span></div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(2)">
+            <img src="images/teil1/03_bruecke_pfinz.png" alt="Brücke Pfinz" loading="lazy" width="400" height="300" />
+            <div class="overlay"><span class="overlay-label">Brücke Pfinz</span></div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(3)">
+            <img src="images/teil1/04_wegpunkt_pforte.png" alt="Wegpunkt Pforte" loading="lazy" width="400" height="300" />
+            <div class="overlay"><span class="overlay-label">Wegpunkt Pforte</span></div>
+          </div>
+        </div>
+
+        <!-- Teil 2 -->
+        <div class="gallery-label" style="margin-top:1.1rem;">
+          <span class="dot dot-blue"></span>
+          <span style="color:#bae6fd;">Teil 2 – Durch das Pfinztal</span>
+        </div>
+        <div class="gallery-grid">
+          <div class="gallery-item" onclick="openLightbox(4)">
+            <img src="images/teil2/01_pfinztal_sued.png" alt="Pfinztal Süd" loading="lazy" width="400" height="300" />
+            <div class="overlay"><span class="overlay-label">Pfinztal Süd</span></div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(5)">
+            <img src="images/teil2/02_pfinztal_mitte.png" alt="Pfinztal Mitte" loading="lazy" width="400" height="300" />
+            <div class="overlay"><span class="overlay-label">Pfinztal Mitte</span></div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(6)">
+            <img src="images/teil2/03_ortsdurchfahrt.png" alt="Ortsdurchfahrt" loading="lazy" width="400" height="300" />
+            <div class="overlay"><span class="overlay-label">Ortsdurchfahrt</span></div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(7)">
+            <img src="images/teil2/04_pfinztal_nord.png" alt="Pfinztal Nord" loading="lazy" width="400" height="300" />
+            <div class="overlay"><span class="overlay-label">Pfinztal Nord</span></div>
+          </div>
+        </div>
+
+        <!-- Teil 3 -->
+        <div class="gallery-label" style="margin-top:1.1rem;">
+          <span class="dot dot-red"></span>
+          <span style="color:#fca5a5;">Teil 3 – Zum Rhein</span>
+        </div>
+        <div class="gallery-grid">
+          <div class="gallery-item" onclick="openLightbox(8)">
+            <img src="images/teil3/01_richtung_rhein.png" alt="Richtung Rhein" loading="lazy" width="400" height="300" />
+            <div class="overlay"><span class="overlay-label">Richtung Rhein</span></div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(9)">
+            <img src="images/teil3/02_rheinradweg.png" alt="Rheinradweg" loading="lazy" width="400" height="300" />
+            <div class="overlay"><span class="overlay-label">Rheinradweg</span></div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(10)">
+            <img src="images/teil3/03_ankunft_rhein.png" alt="Ankunft am Rhein" loading="lazy" width="400" height="300" />
+            <div class="overlay"><span class="overlay-label">Ankunft Rhein 🎉</span></div>
+          </div>
+        </div>
       </section>
     </div>
 
@@ -332,49 +466,124 @@
       <section>
         <h2>☕ Tour unterstützen</h2>
         <div class="coffee-section">
-          <p>Hat dir die Tour oder das Repo gefallen? Gönn mir einen Kaffee 😄</p>
+          <p>Hat dir diese Tour-Doku gefallen? Gönn mir einen Kaffee!</p>
           <a href="https://www.buymeacoffee.com/highfish" target="_blank" rel="noopener noreferrer">
-            <img src="https://cdn.buymeacoffee.com/buttons/default-orange.png" width="160" height="36" alt="Buy me a coffee" loading="lazy" style="border-radius: 0.4rem;" />
+            <img src="https://cdn.buymeacoffee.com/buttons/default-orange.png" width="180" height="41" alt="Buy me a coffee" loading="lazy" />
           </a>
         </div>
       </section>
 
-      <section>
-        <h2>🧱 Repo & Struktur</h2>
-        <ul>
-          <li><code>README.md</code> – Projektbeschreibung</li>
-          <li><code>index.html</code> – diese Seite</li>
-          <li><code>logo_PfinzPforteRhein.png</code> – Logo</li>
-          <li><code>images/</code> – Fotos der Wegpunkte</li>
-          <li><code>docs/*.gpx</code> – GPX-Tracks</li>
+      <section style="margin-top:1.1rem;">
+        <h2>📁 Repo-Struktur</h2>
+        <ul style="list-style:none; margin-left:0; font-size:0.85rem; font-family: var(--font-mono); color:var(--muted); line-height:1.8;">
+          <li>📄 README.md</li>
+          <li>🌐 index.html</li>
+          <li>🖼️ logo_PfinzPforteRhein.png</li>
+          <li>📁 images/</li>
+          <li>&nbsp;&nbsp;├─ teil1/ (4 Fotos)</li>
+          <li>&nbsp;&nbsp;├─ teil2/ (4 Fotos)</li>
+          <li>&nbsp;&nbsp;└─ teil3/ (3 Fotos)</li>
+          <li>📁 docs/</li>
+          <li>&nbsp;&nbsp;├─ teil1_pfinz_pforte.gpx</li>
+          <li>&nbsp;&nbsp;├─ teil2_pfinztal.gpx</li>
+          <li>&nbsp;&nbsp;└─ teil3_zum_rhein.gpx</li>
+          <li>📄 LICENSE (MIT)</li>
         </ul>
       </section>
 
-      <section>
-        <h2>✅ Todo-Liste</h2>
-        <ul>
-          <li>GitHub Pages aktivieren (Settings → Pages → Branch <code>main</code>)</li>
-          <li>GPX-Dateien in <code>docs/</code> aktuell halten</li>
-          <li>Kartenscreenshots einbinden</li>
-          <li>10–15 Fotos hochladen und Galerie ausbauen</li>
+      <section style="margin-top:1.1rem;">
+        <h2>✅ Todo</h2>
+        <ul style="list-style:none; margin-left:0; font-size:0.87rem; color:var(--muted); line-height:2;">
+          <li>✅ Repo erstellt & public</li>
+          <li>✅ README mit Shields & Emojis</li>
+          <li>✅ GitHub Pages index.html</li>
+          <li>✅ Logo generiert</li>
+          <li>✅ 11 Fotos hochgeladen</li>
+          <li>✅ Bildergalerie mit Lightbox</li>
+          <li>⬜ GitHub Pages aktivieren</li>
+          <li>⬜ Kartenscreenshots einfügen</li>
+          <li>⬜ GPX-Tracks hochladen</li>
         </ul>
       </section>
 
-      <section>
-        <h2>📄 Lizenz</h2>
-        <p>Code: <strong style="color:var(--text)">MIT-Lizenz</strong>. Eigene Fotos können separat lizenziert werden.</p>
+      <section style="margin-top:1.1rem;">
+        <h2>⚖️ Lizenz</h2>
+        <p>Dieses Projekt steht unter der <strong style="color:var(--text)">MIT-Lizenz</strong>. Fotos &amp; Texte: privat.</p>
+        <a class="btn-dl" href="https://github.com/jbkunama1/hAITour.Pfinz.I.Pforte.bis.Rhein" target="_blank" rel="noopener" style="margin-top:0.5rem; display:inline-flex;">🐙 GitHub Repo</a>
       </section>
     </div>
 
   </div>
 </main>
 
+<!-- LIGHTBOX -->
+<div id="lightbox" role="dialog" aria-modal="true" aria-label="Bildvorschau">
+  <button id="lb-close" onclick="closeLightbox()" aria-label="Schließen">✕</button>
+  <img id="lb-img" src="" alt="" />
+  <div id="lb-caption"></div>
+  <div id="lb-nav">
+    <button class="lb-btn" onclick="navLightbox(-1)">← Zurück</button>
+    <button class="lb-btn" onclick="navLightbox(1)">Weiter →</button>
+  </div>
+</div>
+
 <footer>
   <div class="footer-inner">
-    <span>hAITour · Pfinz → Pforte → Rhein · MIT License</span>
-    <span><a href="https://github.com/jbkunama1/hAITour.Pfinz.I.Pforte.bis.Rhein" target="_blank" rel="noopener noreferrer">jbkunama1/hAITour.Pfinz.I.Pforte.bis.Rhein</a></span>
+    <span>🚴‍♂️ hAITour: Pfinz → Pforte → Rhein &nbsp;·&nbsp; Mai 2026 &nbsp;·&nbsp; MIT-Lizenz</span>
+    <span>
+      <a href="https://github.com/jbkunama1/hAITour.Pfinz.I.Pforte.bis.Rhein" target="_blank" rel="noopener">GitHub</a>
+      &nbsp;·&nbsp;
+      <a href="https://www.buymeacoffee.com/highfish" target="_blank" rel="noopener">☕ Support</a>
+    </span>
   </div>
 </footer>
+
+<script>
+  const images = [
+    { src: "images/teil1/01_start_pfinz.png",     caption: "🟢 Teil 1 – Start an der Pfinz" },
+    { src: "images/teil1/02_pfinzufer.png",        caption: "🟢 Teil 1 – Pfinzufer" },
+    { src: "images/teil1/03_bruecke_pfinz.png",    caption: "🟢 Teil 1 – Brücke Pfinz" },
+    { src: "images/teil1/04_wegpunkt_pforte.png",  caption: "🟢 Teil 1 – Wegpunkt Pforte" },
+    { src: "images/teil2/01_pfinztal_sued.png",    caption: "🔵 Teil 2 – Pfinztal Süd" },
+    { src: "images/teil2/02_pfinztal_mitte.png",   caption: "🔵 Teil 2 – Pfinztal Mitte" },
+    { src: "images/teil2/03_ortsdurchfahrt.png",   caption: "🔵 Teil 2 – Ortsdurchfahrt" },
+    { src: "images/teil2/04_pfinztal_nord.png",    caption: "🔵 Teil 2 – Pfinztal Nord" },
+    { src: "images/teil3/01_richtung_rhein.png",   caption: "🔴 Teil 3 – Richtung Rhein" },
+    { src: "images/teil3/02_rheinradweg.png",      caption: "🔴 Teil 3 – Rheinradweg" },
+    { src: "images/teil3/03_ankunft_rhein.png",    caption: "🔴 Teil 3 – Ankunft am Rhein 🎉" }
+  ];
+  let current = 0;
+
+  function openLightbox(idx) {
+    current = idx;
+    updateLightbox();
+    document.getElementById('lightbox').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeLightbox() {
+    document.getElementById('lightbox').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  function navLightbox(dir) {
+    current = (current + dir + images.length) % images.length;
+    updateLightbox();
+  }
+  function updateLightbox() {
+    document.getElementById('lb-img').src = images[current].src;
+    document.getElementById('lb-img').alt = images[current].caption;
+    document.getElementById('lb-caption').textContent = images[current].caption + '  (' + (current+1) + ' / ' + images.length + ')';
+  }
+
+  document.getElementById('lightbox').addEventListener('click', function(e) {
+    if (e.target === this) closeLightbox();
+  });
+  document.addEventListener('keydown', function(e) {
+    if (!document.getElementById('lightbox').classList.contains('open')) return;
+    if (e.key === 'Escape') closeLightbox();
+    if (e.key === 'ArrowLeft') navLightbox(-1);
+    if (e.key === 'ArrowRight') navLightbox(1);
+  });
+</script>
 
 </body>
 </html>
