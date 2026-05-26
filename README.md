@@ -12,7 +12,7 @@
 
 ![GitHub Pages](https://img.shields.io/badge/view%20on-GitHub%20Pages-blueviolet?style=for-the-badge)
 ![License: MIT](https://img.shields.io/badge/License-MIT-green.svg?style=for-the-badge)
-![Status](https://img.shields.io/badge/status-in%20tour-orange?style=for-the-badge)
+![Status](https://img.shields.io/badge/status-abgeschlossen%20✅-brightgreen?style=for-the-badge)
 
 > **Hybrid AI Tour** – Eine Fahrradtour von der Pfinz über die Pforte bis zum Rhein, dokumentiert mit Karten, Bildern und GitHub Pages. 🤖🚴
 
@@ -42,6 +42,97 @@ Die Tour ist in drei Abschnitte aufgeteilt:
 
 ---
 
+## 🖼️ Fotogalerie der Tour
+
+### 🟢 Teil 1 – Pfinz zur Pforte
+
+<table>
+  <tr>
+    <td align="center" width="25%">
+      <a href="images/teil1/01_start_pfinz.png">
+        <img src="images/teil1/01_start_pfinz.png" alt="Start an der Pfinz" width="180" style="border-radius:6px;" />
+      </a>
+      <br /><sub><b>🚴 Start an der Pfinz</b></sub>
+    </td>
+    <td align="center" width="25%">
+      <a href="images/teil1/02_pfinzufer.png">
+        <img src="images/teil1/02_pfinzufer.png" alt="Am Pfinzufer" width="180" style="border-radius:6px;" />
+      </a>
+      <br /><sub><b>🌿 Am Pfinzufer</b></sub>
+    </td>
+    <td align="center" width="25%">
+      <a href="images/teil1/03_bruecke_pfinz.png">
+        <img src="images/teil1/03_bruecke_pfinz.png" alt="Brücke über die Pfinz" width="180" style="border-radius:6px;" />
+      </a>
+      <br /><sub><b>🌉 Brücke über die Pfinz</b></sub>
+    </td>
+    <td align="center" width="25%">
+      <a href="images/teil1/04_wegpunkt_pforte.png">
+        <img src="images/teil1/04_wegpunkt_pforte.png" alt="Wegpunkt Pforte" width="180" style="border-radius:6px;" />
+      </a>
+      <br /><sub><b>📍 Wegpunkt Pforte</b></sub>
+    </td>
+  </tr>
+</table>
+
+### 🔵 Teil 2 – Durch das Pfinztal
+
+<table>
+  <tr>
+    <td align="center" width="25%">
+      <a href="images/teil2/01_pfinztal_sued.png">
+        <img src="images/teil2/01_pfinztal_sued.png" alt="Pfinztal Süd" width="180" style="border-radius:6px;" />
+      </a>
+      <br /><sub><b>🌄 Pfinztal Süd</b></sub>
+    </td>
+    <td align="center" width="25%">
+      <a href="images/teil2/02_pfinztal_mitte.png">
+        <img src="images/teil2/02_pfinztal_mitte.png" alt="Pfinztal Mitte" width="180" style="border-radius:6px;" />
+      </a>
+      <br /><sub><b>🌾 Pfinztal Mitte</b></sub>
+    </td>
+    <td align="center" width="25%">
+      <a href="images/teil2/03_ortsdurchfahrt.png">
+        <img src="images/teil2/03_ortsdurchfahrt.png" alt="Ortsdurchfahrt" width="180" style="border-radius:6px;" />
+      </a>
+      <br /><sub><b>🏘️ Ortsdurchfahrt</b></sub>
+    </td>
+    <td align="center" width="25%">
+      <a href="images/teil2/04_pfinztal_nord.png">
+        <img src="images/teil2/04_pfinztal_nord.png" alt="Pfinztal Nord" width="180" style="border-radius:6px;" />
+      </a>
+      <br /><sub><b>🌳 Pfinztal Nord</b></sub>
+    </td>
+  </tr>
+</table>
+
+### 🔴 Teil 3 – Zum Rhein
+
+<table>
+  <tr>
+    <td align="center" width="33%">
+      <a href="images/teil3/01_richtung_rhein.png">
+        <img src="images/teil3/01_richtung_rhein.png" alt="Richtung Rhein" width="200" style="border-radius:6px;" />
+      </a>
+      <br /><sub><b>➡️ Richtung Rhein</b></sub>
+    </td>
+    <td align="center" width="33%">
+      <a href="images/teil3/02_rheinradweg.png">
+        <img src="images/teil3/02_rheinradweg.png" alt="Am Rheinradweg" width="200" style="border-radius:6px;" />
+      </a>
+      <br /><sub><b>🛣️ Am Rheinradweg</b></sub>
+    </td>
+    <td align="center" width="33%">
+      <a href="images/teil3/03_ankunft_rhein.png">
+        <img src="images/teil3/03_ankunft_rhein.png" alt="Ankunft am Rhein" width="200" style="border-radius:6px;" />
+      </a>
+      <br /><sub><b>🏁🌊 Ankunft am Rhein</b></sub>
+    </td>
+  </tr>
+</table>
+
+---
+
 ## 🗺️ Karten & Abschnitte
 
 ### Teil 1: Pfinz → Pforte
@@ -60,30 +151,6 @@ Die Tour ist in drei Abschnitte aufgeteilt:
 
 ---
 
-## 🖼️ Bilder & Medien
-
-Geplant sind **10–15 Bilder** der einzelnen Wegpunkte:
-
-```text
-📁 images/
- ├─ teil1/
- │   ├─ 01_start_pfinz.png
- │   ├─ 02_pfinzufer.png
- │   ├─ 03_bruecke_pfinz.png
- │   └─ 04_wegpunkt_pforte.png
- ├─ teil2/
- │   ├─ 01_pfinztal_sued.png
- │   ├─ 02_pfinztal_mitte.png
- │   ├─ 03_ortsdurchfahrt.png
- │   └─ 04_pfinztal_nord.png
- └─ teil3/
-     ├─ 01_richtung_rhein.png
-     ├─ 02_rheinradweg.png
-     └─ 03_ankunft_rhein.png
-```
-
----
-
 ## 🧱 Projektstruktur
 
 ```text
@@ -93,6 +160,9 @@ hAITour.Pfinz.I.Pforte.bis.Rhein/
 ├─ LICENSE                    ← MIT Lizenz
 ├─ logo_PfinzPforteRhein.png  ← Tour-Logo
 ├─ images/                    ← Fotos der Tour (Wegpunkte)
+│   ├─ teil1/  (4 Bilder)
+│   ├─ teil2/  (4 Bilder)
+│   └─ teil3/  (3 Bilder)
 └─ docs/
     ├─ teil1_pfinz_pforte.gpx  ← GPX-Track Teil 1
     ├─ teil2_pfinztal.gpx      ← GPX-Track Teil 2
