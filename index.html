@@ -10,81 +10,55 @@
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg: #0f172a;
-      --surface: #111827;
-      --surface-2: #1a2235;
-      --border: #1f2937;
-      --accent: #22c55e;
-      --accent-muted: rgba(34,197,94,0.15);
-      --accent-text: #bbf7d0;
-      --blue: #38bdf8;
-      --blue-muted: rgba(56,189,248,0.13);
-      --blue-text: #bae6fd;
-      --text: #e5e7eb;
-      --muted: #9ca3af;
-      --faint: #4b5563;
-      --orange: #f97316;
+      --bg: #0f172a; --surface: #111827; --surface-2: #1a2235;
+      --border: #1f2937; --accent: #22c55e;
+      --accent-muted: rgba(34,197,94,0.15); --accent-text: #bbf7d0;
+      --blue: #38bdf8; --blue-muted: rgba(56,189,248,0.13); --blue-text: #bae6fd;
+      --text: #e5e7eb; --muted: #9ca3af; --faint: #4b5563;
       --font-body: 'DM Sans', system-ui, sans-serif;
       --font-mono: 'DM Mono', ui-monospace, monospace;
-      --radius-sm: 0.4rem;
-      --radius-md: 0.7rem;
-      --radius-lg: 1rem;
-      --radius-xl: 1.4rem;
+      --radius-sm: 0.4rem; --radius-md: 0.7rem;
+      --radius-lg: 1rem; --radius-xl: 1.4rem;
       --trans: 160ms cubic-bezier(0.16,1,0.3,1);
     }
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; -webkit-text-size-adjust: none; }
+    html { scroll-behavior: smooth; }
     body {
-      font-family: var(--font-body);
-      background: var(--bg);
-      color: var(--text);
-      min-height: 100dvh;
-      display: flex; flex-direction: column;
+      font-family: var(--font-body); background: var(--bg); color: var(--text);
+      min-height: 100dvh; display: flex; flex-direction: column;
       font-size: 1rem; line-height: 1.65;
       background-image: radial-gradient(ellipse 80% 50% at 50% -10%, rgba(34,197,94,0.08), transparent);
     }
     a { color: var(--blue); text-decoration: none; transition: color var(--trans); }
     a:hover { color: #7dd3fc; text-decoration: underline; }
-    img, svg { display: block; max-width: 100%; }
+    img { display: block; max-width: 100%; }
     code {
-      font-family: var(--font-mono);
-      font-size: 0.8em;
-      background: rgba(15,23,42,0.9);
-      padding: 0.12rem 0.4rem;
-      border-radius: var(--radius-sm);
-      border: 1px solid var(--border);
+      font-family: var(--font-mono); font-size: 0.8em;
+      background: rgba(15,23,42,0.9); padding: 0.12rem 0.4rem;
+      border-radius: var(--radius-sm); border: 1px solid var(--border);
     }
 
-    /* ===== HEADER ===== */
+    /* HEADER */
     header {
       background: linear-gradient(135deg, rgba(34,197,94,0.18) 0%, rgba(15,23,42,0.95) 60%);
-      border-bottom: 1px solid var(--border);
-      padding: 1.5rem 1.5rem 1.25rem;
+      border-bottom: 1px solid var(--border); padding: 1.5rem 1.5rem 1.25rem;
     }
     .shell { max-width: 1120px; margin: 0 auto; }
-    .header-inner {
-      display: flex; align-items: flex-start;
-      gap: 1.25rem; justify-content: space-between; flex-wrap: wrap;
-    }
+    .header-inner { display: flex; align-items: flex-start; gap: 1.25rem; justify-content: space-between; flex-wrap: wrap; }
     .header-left { display: flex; gap: 1.1rem; align-items: center; flex-wrap: wrap; }
     .logo-img {
-      width: 72px; height: 72px;
-      border-radius: var(--radius-lg);
+      width: 72px; height: 72px; border-radius: var(--radius-lg);
       border: 2px solid rgba(34,197,94,0.45);
       box-shadow: 0 0 22px rgba(34,197,94,0.2);
       object-fit: cover; flex-shrink: 0;
     }
     .header-text h1 {
-      font-size: clamp(1.4rem, 3vw, 2.1rem);
-      font-weight: 700; line-height: 1.2;
+      font-size: clamp(1.4rem, 3vw, 2.1rem); font-weight: 700; line-height: 1.2;
       display: flex; align-items: center; gap: 0.45rem; flex-wrap: wrap;
     }
-    .header-text .sub {
-      margin-top: 0.35rem; color: var(--muted); font-size: 0.95rem; max-width: 540px;
-    }
+    .header-text .sub { margin-top: 0.35rem; color: var(--muted); font-size: 0.95rem; max-width: 540px; }
     .header-right { display: flex; flex-direction: column; align-items: flex-end; gap: 0.6rem; padding-top: 0.25rem; }
-    .coffee-btn img { border-radius: var(--radius-sm); display: block; }
-    .badges { display: flex; flex-wrap: wrap; gap: 0.45rem; margin-top: 0.75rem; }
+    .badges { display: flex; flex-wrap: wrap; gap: 0.45rem; margin-top: 0.5rem; }
     .badges img { height: 26px; }
     .chips { display: flex; flex-wrap: wrap; gap: 0.35rem; margin-top: 0.45rem; }
     .chip {
@@ -93,7 +67,7 @@
       background: rgba(148,163,184,0.07);
     }
 
-    /* ===== MAIN ===== */
+    /* MAIN */
     main { flex: 1; padding: 1.5rem; }
     .grid {
       display: grid;
@@ -101,23 +75,54 @@
       gap: 1.5rem;
     }
     @media (max-width: 860px) { .grid { grid-template-columns: 1fr; } }
-
     section {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-xl);
-      padding: 1.4rem 1.35rem;
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--radius-xl); padding: 1.4rem 1.35rem;
       box-shadow: 0 8px 32px rgba(0,0,0,0.35);
     }
     section + section { margin-top: 1.1rem; }
-
     h2 { font-size: 1.05rem; font-weight: 700; margin-bottom: 0.8rem; display: flex; align-items: center; gap: 0.4rem; }
-    h3 { font-size: 0.97rem; font-weight: 600; margin: 0 0 0.3rem; display: flex; align-items: center; gap: 0.3rem; }
+    h3 { font-size: 0.97rem; font-weight: 600; margin: 0 0 0.3rem; }
     p { margin: 0.2rem 0 0.4rem; color: var(--muted); font-size: 0.93rem; }
-    ul { margin: 0.1rem 0 0.3rem 1rem; padding: 0; }
+    ul { margin: 0.1rem 0 0.3rem 1rem; }
     li { margin-bottom: 0.18rem; font-size: 0.93rem; color: var(--muted); }
 
-    /* ===== GPX TABLE ===== */
+    /* BUTTONS */
+    .btn-map {
+      display: inline-flex; align-items: center; gap: 0.28rem;
+      padding: 0.22rem 0.6rem; border-radius: 999px;
+      background: var(--blue-muted); color: var(--blue-text);
+      border: 1px solid rgba(56,189,248,0.35); font-size: 0.78rem;
+      text-decoration: none; white-space: nowrap; transition: background var(--trans);
+    }
+    .btn-map:hover { background: rgba(56,189,248,0.22); text-decoration: none; }
+    .btn-dl {
+      display: inline-flex; align-items: center; gap: 0.28rem;
+      padding: 0.22rem 0.6rem; border-radius: 999px;
+      background: var(--accent-muted); color: var(--accent-text);
+      border: 1px solid rgba(34,197,94,0.45); font-size: 0.78rem;
+      text-decoration: none; white-space: nowrap; transition: background var(--trans);
+    }
+    .btn-dl:hover { background: rgba(34,197,94,0.25); text-decoration: none; }
+    .btn-row { display: flex; gap: 0.38rem; flex-wrap: wrap; margin-top: 0.5rem; }
+
+    /* MAP CARDS */
+    .map-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 0.85rem; margin-top: 0.6rem; }
+    .card {
+      border: 1px solid var(--border); border-radius: var(--radius-lg);
+      background: radial-gradient(circle at top left, rgba(34,197,94,0.06), var(--bg));
+      padding: 0.8rem 0.85rem 0.85rem;
+    }
+    .map-thumb { margin-top: 0.45rem; border-radius: var(--radius-md); overflow: hidden; height: 130px; border: 1px solid rgba(55,65,81,0.7); }
+    .map-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .map-thumb-empty {
+      margin-top: 0.45rem; border-radius: var(--radius-md); height: 130px;
+      background: repeating-linear-gradient(135deg,#1f2937 0,#1f2937 4px,#111827 4px,#111827 8px);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--faint); font-size: 0.78rem; border: 1px solid rgba(55,65,81,0.7);
+    }
+
+    /* GPX TABLE */
     .gpx-table { width: 100%; border-collapse: collapse; margin-top: 0.5rem; font-size: 0.88rem; }
     .gpx-table th {
       text-align: left; padding: 0.4rem 0.65rem;
@@ -126,175 +131,71 @@
     }
     .gpx-table td { padding: 0.38rem 0.65rem; border-bottom: 1px solid var(--border); vertical-align: middle; }
     .gpx-table tr:last-child td { border-bottom: none; }
-    .gpx-table tr:hover td { background: rgba(34,197,94,0.04); }
-    .btn-map {
-      display: inline-flex; align-items: center; gap: 0.28rem;
-      padding: 0.22rem 0.6rem; border-radius: 999px;
-      background: var(--blue-muted); color: var(--blue-text);
-      border: 1px solid rgba(56,189,248,0.35); font-size: 0.78rem;
-      text-decoration: none; white-space: nowrap;
-      transition: background var(--trans);
-    }
-    .btn-map:hover { background: rgba(56,189,248,0.22); text-decoration: none; color: var(--blue-text); }
-    .btn-dl {
-      display: inline-flex; align-items: center; gap: 0.28rem;
-      padding: 0.22rem 0.6rem; border-radius: 999px;
-      background: var(--accent-muted); color: var(--accent-text);
-      border: 1px solid rgba(34,197,94,0.45); font-size: 0.78rem;
-      text-decoration: none; white-space: nowrap;
-      transition: background var(--trans);
-    }
-    .btn-dl:hover { background: rgba(34,197,94,0.25); text-decoration: none; color: var(--accent-text); }
     .gpx-hint { font-size: 0.8rem; color: var(--faint); margin-top: 0.55rem; }
 
-    /* ===== MAP CARDS ===== */
-    .map-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 0.85rem; margin-top: 0.6rem;
-    }
-    .card {
-      border: 1px solid var(--border);
-      border-radius: var(--radius-lg);
-      background: radial-gradient(circle at top left, rgba(34,197,94,0.06), var(--bg));
-      padding: 0.8rem 0.85rem 0.85rem;
-    }
-    .card h3 { margin-top: 0; }
-    .map-thumb {
-      margin-top: 0.45rem;
-      border-radius: var(--radius-md);
-      overflow: hidden;
-      height: 130px;
-      border: 1px solid rgba(55,65,81,0.7);
-    }
-    .map-thumb img {
-      width: 100%; height: 100%;
-      object-fit: cover;
-      display: block;
-    }
-    .btn-row { display: flex; gap: 0.38rem; flex-wrap: wrap; margin-top: 0.5rem; }
-
-    /* ===== GALLERY ===== */
-    .gallery-section-label {
-      font-size: 0.78rem;
-      font-weight: 700;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      padding: 0.3rem 0.7rem;
-      border-radius: 999px;
-      margin-bottom: 0.7rem;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.35rem;
+    /* GALLERY */
+    .gallery-label {
+      font-size: 0.78rem; font-weight: 700; letter-spacing: 0.06em;
+      text-transform: uppercase; padding: 0.3rem 0.7rem; border-radius: 999px;
+      margin-bottom: 0.7rem; display: inline-flex; align-items: center; gap: 0.35rem;
     }
     .label-t1 { background: rgba(34,197,94,0.15); color: var(--accent-text); border: 1px solid rgba(34,197,94,0.3); }
     .label-t2 { background: rgba(56,189,248,0.13); color: var(--blue-text); border: 1px solid rgba(56,189,248,0.3); }
     .label-t3 { background: rgba(249,115,22,0.13); color: #fed7aa; border: 1px solid rgba(249,115,22,0.3); }
-
     .gallery-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
-      gap: 0.65rem;
-      margin-bottom: 1.2rem;
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+      gap: 0.65rem; margin-bottom: 1.2rem;
     }
-    @media (max-width: 600px) {
-      .gallery-grid { grid-template-columns: repeat(2, 1fr); }
-    }
-
-    .gallery-item {
-      border-radius: var(--radius-md);
-      overflow: hidden;
-      border: 1px solid var(--border);
-      background: var(--surface-2);
-      cursor: pointer;
+    @media (max-width: 600px) { .gallery-grid { grid-template-columns: repeat(2, 1fr); } }
+    .gitem {
+      border-radius: var(--radius-md); overflow: hidden;
+      border: 1px solid var(--border); background: var(--surface-2);
+      cursor: pointer; aspect-ratio: 4/3;
       transition: transform var(--trans), box-shadow var(--trans), border-color var(--trans);
-      aspect-ratio: 4/3;
     }
-    .gallery-item:hover {
-      transform: translateY(-3px) scale(1.02);
-      box-shadow: 0 12px 32px rgba(0,0,0,0.5);
-      border-color: var(--accent);
-    }
-    .gallery-item img {
-      width: 100%; height: 100%;
-      object-fit: cover;
-      display: block;
-      transition: opacity 0.3s;
-    }
+    .gitem:hover { transform: translateY(-3px) scale(1.02); box-shadow: 0 12px 32px rgba(0,0,0,0.5); border-color: var(--accent); }
+    .gitem img { width: 100%; height: 100%; object-fit: cover; display: block; }
 
-    /* ===== LIGHTBOX ===== */
-    #lightbox {
-      display: none;
-      position: fixed; inset: 0;
-      background: rgba(0,0,0,0.92);
-      z-index: 1000;
-      align-items: center;
-      justify-content: center;
-      flex-direction: column;
-      padding: 1rem;
+    /* LIGHTBOX */
+    #lb {
+      display: none; position: fixed; inset: 0;
+      background: rgba(0,0,0,0.92); z-index: 1000;
+      align-items: center; justify-content: center;
+      flex-direction: column; padding: 1rem;
     }
-    #lightbox.open { display: flex; }
-    #lightbox img {
-      max-width: 90vw;
-      max-height: 82vh;
-      border-radius: var(--radius-lg);
-      box-shadow: 0 0 80px rgba(34,197,94,0.15), 0 24px 80px rgba(0,0,0,0.8);
-      object-fit: contain;
-    }
-    #lightbox-caption {
-      margin-top: 0.75rem;
-      color: var(--muted);
-      font-size: 0.88rem;
-      text-align: center;
-    }
-    #lightbox-close {
-      position: absolute; top: 1rem; right: 1.2rem;
-      background: none; border: none; color: var(--muted);
-      font-size: 2rem; cursor: pointer; line-height: 1;
-      transition: color var(--trans);
-    }
-    #lightbox-close:hover { color: var(--text); }
-    #lightbox-nav {
-      display: flex; gap: 1rem; margin-top: 0.6rem;
-    }
+    #lb.open { display: flex; }
+    #lb img { max-width: 90vw; max-height: 80vh; border-radius: var(--radius-lg); object-fit: contain; box-shadow: 0 24px 80px rgba(0,0,0,0.8); }
+    #lb-cap { margin-top: 0.75rem; color: var(--muted); font-size: 0.88rem; text-align: center; }
+    #lb-close { position: absolute; top: 1rem; right: 1.2rem; background: none; border: none; color: var(--muted); font-size: 2rem; cursor: pointer; line-height: 1; }
+    #lb-close:hover { color: #fff; }
+    #lb-nav { display: flex; gap: 1rem; margin-top: 0.6rem; }
     .lb-btn {
-      background: rgba(34,197,94,0.15);
-      border: 1px solid rgba(34,197,94,0.35);
-      color: var(--accent-text);
-      border-radius: 999px;
-      padding: 0.3rem 1rem;
-      cursor: pointer;
-      font-size: 0.85rem;
-      transition: background var(--trans);
+      background: rgba(34,197,94,0.15); border: 1px solid rgba(34,197,94,0.35);
+      color: var(--accent-text); border-radius: 999px;
+      padding: 0.3rem 1rem; cursor: pointer; font-size: 0.85rem;
     }
     .lb-btn:hover { background: rgba(34,197,94,0.28); }
 
-    /* ===== SIDEBAR ===== */
+    /* SIDEBAR */
     .sidebar > section { background: var(--surface-2); }
 
-    /* ===== FOOTER ===== */
-    footer {
-      border-top: 1px solid var(--border);
-      padding: 1rem 1.5rem;
-      font-size: 0.82rem; color: var(--faint);
-      text-align: center;
-    }
+    /* FOOTER */
+    footer { border-top: 1px solid var(--border); padding: 1rem 1.5rem; font-size: 0.82rem; color: var(--faint); text-align: center; }
     footer a { color: var(--faint); }
     footer a:hover { color: var(--muted); }
   </style>
 </head>
 <body>
 
-<!-- ===== HEADER ===== -->
+<!-- HEADER -->
 <header>
   <div class="shell">
     <div class="header-inner">
       <div class="header-left">
         <img
-          src="logo_PfinzPforteRhein.png"
-          alt="hAITour Logo"
-          class="logo-img"
-          onerror="this.style.display='none'"
+          src="https://raw.githubusercontent.com/jbkunama1/hAITour.Pfinz.I.Pforte.bis.Rhein/main/logo_PfinzPforteRhein.png"
+          alt="hAITour Logo" class="logo-img"
+          onerror="this.style.opacity='0'"
         />
         <div class="header-text">
           <h1>🚴 hAITour <span style="color:var(--accent)">Pfinz → Pforte → Rhein</span></h1>
@@ -303,32 +204,32 @@
             <span class="chip">🗺️ 3 Abschnitte</span>
             <span class="chip">📸 11 Fotos</span>
             <span class="chip">🤖 hAI-Log</span>
-            <span class="chip">🌿 Natur & Radweg</span>
+            <span class="chip">🌿 Natur &amp; Radweg</span>
             <span class="chip">📍 Karlsruhe</span>
           </div>
         </div>
       </div>
       <div class="header-right">
-        <a href="https://www.buymeacoffee.com/highfish" target="_blank" rel="noopener noreferrer" class="coffee-btn">
-          <img src="https://img.buymeacoffee.com/button-api/?text=Buy%20me%20a%20coffee&emoji=☕&slug=highfish&button_colour=22c55e&font_colour=0f172a&font_family=Lato&outline_colour=0f172a&coffee_colour=FFDD00" alt="Buy Me A Coffee" height="40" />
+        <a href="https://www.buymeacoffee.com/highfish" target="_blank" rel="noopener">
+          <img src="https://img.buymeacoffee.com/button-api/?text=Buy%20me%20a%20coffee&emoji=%E2%98%95&slug=highfish&button_colour=22c55e&font_colour=0f172a&font_family=Lato&outline_colour=0f172a&coffee_colour=FFDD00" alt="Buy Me A Coffee" height="40" />
         </a>
         <div class="badges">
-          <img src="https://img.shields.io/badge/GitHub_Pages-live-22c55e?style=flat-square&logo=github" alt="GitHub Pages" />
-          <img src="https://img.shields.io/badge/Lizenz-MIT-blue?style=flat-square" alt="MIT Lizenz" />
-          <img src="https://img.shields.io/badge/Tour-Mai_2026-orange?style=flat-square&logo=strava" alt="Tour Mai 2026" />
+          <img src="https://img.shields.io/badge/GitHub_Pages-live-22c55e?style=flat-square&logo=github" alt="Pages" />
+          <img src="https://img.shields.io/badge/Lizenz-MIT-blue?style=flat-square" alt="MIT" />
+          <img src="https://img.shields.io/badge/Tour-Mai_2026-orange?style=flat-square" alt="Tour" />
         </div>
       </div>
     </div>
   </div>
 </header>
 
-<!-- ===== MAIN ===== -->
+<!-- MAIN -->
 <main>
   <div class="shell">
     <div class="grid">
 
-      <!-- LEFT COLUMN -->
-      <div class="left-col">
+      <!-- LEFT -->
+      <div>
 
         <!-- KARTEN-ABSCHNITTE -->
         <section>
@@ -337,9 +238,9 @@
 
             <div class="card">
               <h3>🟢 Teil 1 · Pfinz/Pforte</h3>
-              <p>Start an der Pfinz/Pforte, entlang des Ufers Richtung Süden.</p>
+              <p>Start an der Pfinz, entlang des Ufers Richtung Süden.</p>
               <div class="map-thumb">
-                <img src="Screenshot_Hinweg.jpg" alt="Kartenausschnitt Hinweg" loading="lazy" />
+                <img src="https://raw.githubusercontent.com/jbkunama1/hAITour.Pfinz.I.Pforte.bis.Rhein/main/Screenshot_Hinweg.jpg" alt="Karte Hinweg" loading="lazy" />
               </div>
               <div class="btn-row">
                 <a href="https://maps.app.goo.gl/gPDNqdz4Gan2su3x5" target="_blank" class="btn-map">🗺️ Maps</a>
@@ -349,10 +250,8 @@
 
             <div class="card">
               <h3>🔵 Teil 2 · Pfinztal</h3>
-              <p>Durch das Pfinztal, vorbei an Ortschaften und Naturabschnitten.</p>
-              <div class="map-thumb" style="background: repeating-linear-gradient(135deg,#1f2937 0,#1f2937 4px,#111827 4px,#111827 8px); height:130px; display:flex; align-items:center; justify-content:center; color:var(--faint); font-size:0.78rem; text-align:center; padding:0.5rem;">
-                📷 Screenshot folgt
-              </div>
+              <p>Durch das Pfinztal, vorbei an Ortschaften und Natur.</p>
+              <div class="map-thumb-empty">📷 Karte folgt</div>
               <div class="btn-row">
                 <a href="https://maps.app.goo.gl/Lzt2sL145VXShjhs9" target="_blank" class="btn-map">🗺️ Maps</a>
                 <a href="tracks/teil2_pfinztal.gpx" class="btn-dl" download>⬇️ GPX</a>
@@ -363,7 +262,7 @@
               <h3>🔴 Teil 3 · Zum Rhein</h3>
               <p>Finale Etappe zum Rheinradweg und Ankunft am Rhein.</p>
               <div class="map-thumb">
-                <img src="Screenshot_Rückweg.jpg" alt="Kartenausschnitt Rückweg" loading="lazy" />
+                <img src="https://raw.githubusercontent.com/jbkunama1/hAITour.Pfinz.I.Pforte.bis.Rhein/main/Screenshot_R%C3%BCckweg.jpg" alt="Karte Rückweg" loading="lazy" />
               </div>
               <div class="btn-row">
                 <a href="https://maps.app.goo.gl/dZFYExEyQecgXBL58" target="_blank" class="btn-map">🗺️ Maps</a>
@@ -374,109 +273,67 @@
           </div>
         </section>
 
-        <!-- FOTO-GALERIE -->
-        <section style="margin-top:1.1rem;">
+        <!-- GALERIE -->
+        <section style="margin-top:1.1rem">
           <h2>📸 Fotogalerie der Tour</h2>
 
-          <!-- TEIL 1 -->
-          <div class="gallery-section-label label-t1">🟢 Teil 1 · Pfinz/Pforte</div>
-          <div class="gallery-grid" id="gallery-t1">
-            <div class="gallery-item" onclick="openLightbox(0)" title="Start an der Pfinz">
-              <img src="images/teil1/01_start_pfinz.png" alt="Start an der Pfinz" loading="lazy" />
-            </div>
-            <div class="gallery-item" onclick="openLightbox(1)" title="Pfinzufer">
-              <img src="images/teil1/02_pfinzufer.png" alt="Pfinzufer" loading="lazy" />
-            </div>
-            <div class="gallery-item" onclick="openLightbox(2)" title="Brücke Pfinz">
-              <img src="images/teil1/03_bruecke_pfinz.png" alt="Brücke über die Pfinz" loading="lazy" />
-            </div>
-            <div class="gallery-item" onclick="openLightbox(3)" title="Wegpunkt Pforte">
-              <img src="images/teil1/04_wegpunkt_pforte.png" alt="Wegpunkt Pforte" loading="lazy" />
-            </div>
+          <div class="gallery-label label-t1">🟢 Teil 1 · Pfinz / Pforte</div>
+          <div class="gallery-grid">
+            <div class="gitem" onclick="lbOpen(0)"><img src="https://raw.githubusercontent.com/jbkunama1/hAITour.Pfinz.I.Pforte.bis.Rhein/main/images/teil1/01_start_pfinz.png" alt="Start Pfinz" loading="lazy"></div>
+            <div class="gitem" onclick="lbOpen(1)"><img src="https://raw.githubusercontent.com/jbkunama1/hAITour.Pfinz.I.Pforte.bis.Rhein/main/images/teil1/02_pfinzufer.png" alt="Pfinzufer" loading="lazy"></div>
+            <div class="gitem" onclick="lbOpen(2)"><img src="https://raw.githubusercontent.com/jbkunama1/hAITour.Pfinz.I.Pforte.bis.Rhein/main/images/teil1/03_bruecke_pfinz.png" alt="Brücke Pfinz" loading="lazy"></div>
+            <div class="gitem" onclick="lbOpen(3)"><img src="https://raw.githubusercontent.com/jbkunama1/hAITour.Pfinz.I.Pforte.bis.Rhein/main/images/teil1/04_wegpunkt_pforte.png" alt="Wegpunkt Pforte" loading="lazy"></div>
           </div>
 
-          <!-- TEIL 2 -->
-          <div class="gallery-section-label label-t2">🔵 Teil 2 · Pfinztal</div>
-          <div class="gallery-grid" id="gallery-t2">
-            <div class="gallery-item" onclick="openLightbox(4)" title="Pfinztal Süd">
-              <img src="images/teil2/01_pfinztal_sued.png" alt="Pfinztal Süd" loading="lazy" />
-            </div>
-            <div class="gallery-item" onclick="openLightbox(5)" title="Pfinztal Mitte">
-              <img src="images/teil2/02_pfinztal_mitte.png" alt="Pfinztal Mitte" loading="lazy" />
-            </div>
-            <div class="gallery-item" onclick="openLightbox(6)" title="Ortsdurchfahrt">
-              <img src="images/teil2/03_ortsdurchfahrt.png" alt="Ortsdurchfahrt" loading="lazy" />
-            </div>
-            <div class="gallery-item" onclick="openLightbox(7)" title="Pfinztal Nord">
-              <img src="images/teil2/04_pfinztal_nord.png" alt="Pfinztal Nord" loading="lazy" />
-            </div>
+          <div class="gallery-label label-t2">🔵 Teil 2 · Pfinztal</div>
+          <div class="gallery-grid">
+            <div class="gitem" onclick="lbOpen(4)"><img src="https://raw.githubusercontent.com/jbkunama1/hAITour.Pfinz.I.Pforte.bis.Rhein/main/images/teil2/01_pfinztal_sued.png" alt="Pfinztal Süd" loading="lazy"></div>
+            <div class="gitem" onclick="lbOpen(5)"><img src="https://raw.githubusercontent.com/jbkunama1/hAITour.Pfinz.I.Pforte.bis.Rhein/main/images/teil2/02_pfinztal_mitte.png" alt="Pfinztal Mitte" loading="lazy"></div>
+            <div class="gitem" onclick="lbOpen(6)"><img src="https://raw.githubusercontent.com/jbkunama1/hAITour.Pfinz.I.Pforte.bis.Rhein/main/images/teil2/03_ortsdurchfahrt.png" alt="Ortsdurchfahrt" loading="lazy"></div>
+            <div class="gitem" onclick="lbOpen(7)"><img src="https://raw.githubusercontent.com/jbkunama1/hAITour.Pfinz.I.Pforte.bis.Rhein/main/images/teil2/04_pfinztal_nord.png" alt="Pfinztal Nord" loading="lazy"></div>
           </div>
 
-          <!-- TEIL 3 -->
-          <div class="gallery-section-label label-t3">🔴 Teil 3 · Zum Rhein</div>
-          <div class="gallery-grid" id="gallery-t3">
-            <div class="gallery-item" onclick="openLightbox(8)" title="Richtung Rhein">
-              <img src="images/teil3/01_richtung_rhein.png" alt="Richtung Rhein" loading="lazy" />
-            </div>
-            <div class="gallery-item" onclick="openLightbox(9)" title="Rheinradweg">
-              <img src="images/teil3/02_rheinradweg.png" alt="Rheinradweg" loading="lazy" />
-            </div>
-            <div class="gallery-item" onclick="openLightbox(10)" title="Ankunft am Rhein">
-              <img src="images/teil3/03_ankunft_rhein.png" alt="Ankunft am Rhein 🎉" loading="lazy" />
-            </div>
+          <div class="gallery-label label-t3">🔴 Teil 3 · Zum Rhein</div>
+          <div class="gallery-grid">
+            <div class="gitem" onclick="lbOpen(8)"><img src="https://raw.githubusercontent.com/jbkunama1/hAITour.Pfinz.I.Pforte.bis.Rhein/main/images/teil3/01_richtung_rhein.png" alt="Richtung Rhein" loading="lazy"></div>
+            <div class="gitem" onclick="lbOpen(9)"><img src="https://raw.githubusercontent.com/jbkunama1/hAITour.Pfinz.I.Pforte.bis.Rhein/main/images/teil3/02_rheinradweg.png" alt="Rheinradweg" loading="lazy"></div>
+            <div class="gitem" onclick="lbOpen(10)"><img src="https://raw.githubusercontent.com/jbkunama1/hAITour.Pfinz.I.Pforte.bis.Rhein/main/images/teil3/03_ankunft_rhein.png" alt="Ankunft Rhein 🎉" loading="lazy"></div>
           </div>
         </section>
 
-        <!-- GPX TABELLE -->
-        <section style="margin-top:1.1rem;">
+        <!-- GPX -->
+        <section style="margin-top:1.1rem">
           <h2>📥 GPX-Tracks</h2>
           <table class="gpx-table">
-            <thead>
-              <tr><th>Abschnitt</th><th>Strecke</th><th>Maps</th><th>Download</th></tr>
-            </thead>
+            <thead><tr><th>Abschnitt</th><th>Strecke</th><th>Maps</th><th>Download</th></tr></thead>
             <tbody>
-              <tr>
-                <td>🟢 Teil 1 · Pfinz/Pforte</td>
-                <td>~8 km</td>
-                <td><a href="https://maps.app.goo.gl/gPDNqdz4Gan2su3x5" target="_blank" class="btn-map">🗺️ Maps</a></td>
-                <td><a href="tracks/teil1_pfinz_pforte.gpx" class="btn-dl" download>⬇️ GPX</a></td>
-              </tr>
-              <tr>
-                <td>🔵 Teil 2 · Pfinztal</td>
-                <td>~12 km</td>
-                <td><a href="https://maps.app.goo.gl/Lzt2sL145VXShjhs9" target="_blank" class="btn-map">🗺️ Maps</a></td>
-                <td><a href="tracks/teil2_pfinztal.gpx" class="btn-dl" download>⬇️ GPX</a></td>
-              </tr>
-              <tr>
-                <td>🔴 Teil 3 · Zum Rhein</td>
-                <td>~10 km</td>
-                <td><a href="https://maps.app.goo.gl/dZFYExEyQecgXBL58" target="_blank" class="btn-map">🗺️ Maps</a></td>
-                <td><a href="tracks/teil3_zum_rhein.gpx" class="btn-dl" download>⬇️ GPX</a></td>
-              </tr>
+              <tr><td>🟢 Teil 1 · Pfinz/Pforte</td><td>~8 km</td><td><a href="https://maps.app.goo.gl/gPDNqdz4Gan2su3x5" target="_blank" class="btn-map">🗺️ Maps</a></td><td><a href="tracks/teil1_pfinz_pforte.gpx" class="btn-dl" download>⬇️ GPX</a></td></tr>
+              <tr><td>🔵 Teil 2 · Pfinztal</td><td>~12 km</td><td><a href="https://maps.app.goo.gl/Lzt2sL145VXShjhs9" target="_blank" class="btn-map">🗺️ Maps</a></td><td><a href="tracks/teil2_pfinztal.gpx" class="btn-dl" download>⬇️ GPX</a></td></tr>
+              <tr><td>🔴 Teil 3 · Zum Rhein</td><td>~10 km</td><td><a href="https://maps.app.goo.gl/dZFYExEyQecgXBL58" target="_blank" class="btn-map">🗺️ Maps</a></td><td><a href="tracks/teil3_zum_rhein.gpx" class="btn-dl" download>⬇️ GPX</a></td></tr>
             </tbody>
           </table>
-          <p class="gpx-hint">💡 GPX-Dateien können in Komoot, Garmin Connect, Wahoo oder jede andere Rad-App importiert werden.</p>
+          <p class="gpx-hint">💡 GPX-Dateien können in Komoot, Garmin Connect oder Wahoo importiert werden.</p>
         </section>
 
-      </div><!-- end left-col -->
+      </div><!-- /left -->
 
-      <!-- RIGHT COLUMN / SIDEBAR -->
+      <!-- SIDEBAR -->
       <div class="sidebar">
 
         <section>
           <h2>☕ Tour unterstützen</h2>
           <p>Hat dir die Tour-Doku gefallen?</p>
-          <a href="https://www.buymeacoffee.com/highfish" target="_blank" rel="noopener noreferrer" style="display:inline-block; margin-top:0.5rem;">
-            <img src="https://img.buymeacoffee.com/button-api/?text=Buy%20me%20a%20coffee&emoji=☕&slug=highfish&button_colour=22c55e&font_colour=0f172a&font_family=Lato&outline_colour=0f172a&coffee_colour=FFDD00" alt="Buy Me A Coffee" style="border-radius:var(--radius-sm); max-width:100%;" />
+          <a href="https://www.buymeacoffee.com/highfish" target="_blank" rel="noopener" style="display:inline-block;margin-top:0.5rem">
+            <img src="https://img.buymeacoffee.com/button-api/?text=Buy%20me%20a%20coffee&emoji=%E2%98%95&slug=highfish&button_colour=22c55e&font_colour=0f172a&font_family=Lato&outline_colour=0f172a&coffee_colour=FFDD00" alt="Buy Me A Coffee" style="border-radius:var(--radius-sm);max-width:100%" />
           </a>
         </section>
 
         <section>
           <h2>📂 Repo-Struktur</h2>
           <ul>
-            <li><code>images/teil1/</code> — 4 Fotos Teil 1</li>
-            <li><code>images/teil2/</code> — 4 Fotos Teil 2</li>
-            <li><code>images/teil3/</code> — 3 Fotos Teil 3</li>
+            <li><code>images/teil1/</code> — 4 Fotos</li>
+            <li><code>images/teil2/</code> — 4 Fotos</li>
+            <li><code>images/teil3/</code> — 3 Fotos</li>
             <li><code>tracks/</code> — GPX-Dateien</li>
             <li><code>README.md</code> — Dokumentation</li>
             <li><code>index.html</code> — Diese Seite</li>
@@ -485,22 +342,22 @@
         </section>
 
         <section>
-          <h2>✅ Todo</h2>
+          <h2>✅ Status</h2>
           <ul>
             <li>☑️ Repo erstellt &amp; öffentlich</li>
             <li>☑️ README mit Galerie</li>
             <li>☑️ GitHub Pages aktiv</li>
             <li>☑️ Logo eingebunden</li>
-            <li>☑️ 11 Fotos hochgeladen</li>
-            <li>☑️ Screenshot-Karten</li>
+            <li>☑️ 11 Fotos geladen</li>
+            <li>☑️ Absolute Bild-URLs (Fix)</li>
             <li>⬜ GPX-Tracks exportieren</li>
           </ul>
         </section>
 
         <section>
           <h2>⚖️ Lizenz</h2>
-          <p>Dieses Projekt steht unter der <strong>MIT-Lizenz</strong>. Fotos und Texte: privat, alle Rechte vorbehalten.</p>
-          <a href="LICENSE" style="font-size:0.85rem;">→ LICENSE lesen</a>
+          <p>MIT-Lizenz. Fotos und Texte: privat, alle Rechte vorbehalten.</p>
+          <a href="LICENSE" style="font-size:0.85rem">→ LICENSE lesen</a>
         </section>
 
         <section>
@@ -513,23 +370,23 @@
           </ul>
         </section>
 
-      </div><!-- end sidebar -->
-    </div><!-- end grid -->
-  </div><!-- end shell -->
+      </div><!-- /sidebar -->
+    </div><!-- /grid -->
+  </div><!-- /shell -->
 </main>
 
-<!-- ===== LIGHTBOX ===== -->
-<div id="lightbox" role="dialog" aria-modal="true" aria-label="Foto-Vollansicht" onclick="closeLightboxOutside(event)">
-  <button id="lightbox-close" onclick="closeLightbox()" aria-label="Schließen">×</button>
-  <img id="lightbox-img" src="" alt="" />
-  <div id="lightbox-caption"></div>
-  <div id="lightbox-nav">
-    <button class="lb-btn" onclick="moveLightbox(-1)">← Zurück</button>
-    <button class="lb-btn" onclick="moveLightbox(1)">Weiter →</button>
+<!-- LIGHTBOX -->
+<div id="lb" onclick="if(event.target===this)lbClose()">
+  <button id="lb-close" onclick="lbClose()">×</button>
+  <img id="lb-img" src="" alt="" />
+  <div id="lb-cap"></div>
+  <div id="lb-nav">
+    <button class="lb-btn" onclick="lbMove(-1)">← Zurück</button>
+    <button class="lb-btn" onclick="lbMove(1)">Weiter →</button>
   </div>
 </div>
 
-<!-- ===== FOOTER ===== -->
+<!-- FOOTER -->
 <footer>
   <div class="shell">
     🚴 hAITour · Pfinz → Pforte → Rhein · Mai 2026 ·
@@ -538,59 +395,40 @@
   </div>
 </footer>
 
-<!-- ===== LIGHTBOX JS ===== -->
 <script>
-  const photos = [
-    { src: "images/teil1/01_start_pfinz.png",     caption: "🟢 Teil 1 · Start an der Pfinz" },
-    { src: "images/teil1/02_pfinzufer.png",        caption: "🟢 Teil 1 · Pfinzufer" },
-    { src: "images/teil1/03_bruecke_pfinz.png",    caption: "🟢 Teil 1 · Brücke über die Pfinz" },
-    { src: "images/teil1/04_wegpunkt_pforte.png",  caption: "🟢 Teil 1 · Wegpunkt Pforte" },
-    { src: "images/teil2/01_pfinztal_sued.png",    caption: "🔵 Teil 2 · Pfinztal Süd" },
-    { src: "images/teil2/02_pfinztal_mitte.png",   caption: "🔵 Teil 2 · Pfinztal Mitte" },
-    { src: "images/teil2/03_ortsdurchfahrt.png",   caption: "🔵 Teil 2 · Ortsdurchfahrt" },
-    { src: "images/teil2/04_pfinztal_nord.png",    caption: "🔵 Teil 2 · Pfinztal Nord" },
-    { src: "images/teil3/01_richtung_rhein.png",   caption: "🔴 Teil 3 · Richtung Rhein" },
-    { src: "images/teil3/02_rheinradweg.png",      caption: "🔴 Teil 3 · Rheinradweg" },
-    { src: "images/teil3/03_ankunft_rhein.png",    caption: "🔴 Teil 3 · Ankunft am Rhein 🎉" },
-  ];
-
-  let currentIndex = 0;
-
-  function openLightbox(idx) {
-    currentIndex = idx;
-    showPhoto();
-    document.getElementById('lightbox').classList.add('open');
-    document.body.style.overflow = 'hidden';
-  }
-
-  function showPhoto() {
-    const p = photos[currentIndex];
-    document.getElementById('lightbox-img').src = p.src;
-    document.getElementById('lightbox-img').alt = p.caption;
-    document.getElementById('lightbox-caption').textContent = p.caption + "  (" + (currentIndex+1) + "/" + photos.length + ")";
-  }
-
-  function moveLightbox(dir) {
-    currentIndex = (currentIndex + dir + photos.length) % photos.length;
-    showPhoto();
-  }
-
-  function closeLightbox() {
-    document.getElementById('lightbox').classList.remove('open');
-    document.body.style.overflow = '';
-  }
-
-  function closeLightboxOutside(e) {
-    if (e.target === document.getElementById('lightbox')) closeLightbox();
-  }
-
-  document.addEventListener('keydown', (e) => {
-    const lb = document.getElementById('lightbox');
-    if (!lb.classList.contains('open')) return;
-    if (e.key === 'Escape') closeLightbox();
-    if (e.key === 'ArrowLeft') moveLightbox(-1);
-    if (e.key === 'ArrowRight') moveLightbox(1);
-  });
+const BASE = "https://raw.githubusercontent.com/jbkunama1/hAITour.Pfinz.I.Pforte.bis.Rhein/main/";
+const photos = [
+  { src: BASE+"images/teil1/01_start_pfinz.png",    cap: "🟢 Teil 1 · Start an der Pfinz" },
+  { src: BASE+"images/teil1/02_pfinzufer.png",       cap: "🟢 Teil 1 · Pfinzufer" },
+  { src: BASE+"images/teil1/03_bruecke_pfinz.png",   cap: "🟢 Teil 1 · Brücke über die Pfinz" },
+  { src: BASE+"images/teil1/04_wegpunkt_pforte.png", cap: "🟢 Teil 1 · Wegpunkt Pforte" },
+  { src: BASE+"images/teil2/01_pfinztal_sued.png",   cap: "🔵 Teil 2 · Pfinztal Süd" },
+  { src: BASE+"images/teil2/02_pfinztal_mitte.png",  cap: "🔵 Teil 2 · Pfinztal Mitte" },
+  { src: BASE+"images/teil2/03_ortsdurchfahrt.png",  cap: "🔵 Teil 2 · Ortsdurchfahrt" },
+  { src: BASE+"images/teil2/04_pfinztal_nord.png",   cap: "🔵 Teil 2 · Pfinztal Nord" },
+  { src: BASE+"images/teil3/01_richtung_rhein.png",  cap: "🔴 Teil 3 · Richtung Rhein" },
+  { src: BASE+"images/teil3/02_rheinradweg.png",     cap: "🔴 Teil 3 · Rheinradweg" },
+  { src: BASE+"images/teil3/03_ankunft_rhein.png",   cap: "🔴 Teil 3 · Ankunft am Rhein 🎉" },
+];
+let cur = 0;
+function lbOpen(i) {
+  cur = i;
+  document.getElementById('lb-img').src = photos[i].src;
+  document.getElementById('lb-cap').textContent = photos[i].cap + "  (" + (i+1) + "/" + photos.length + ")";
+  document.getElementById('lb').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function lbMove(d) { cur = (cur + d + photos.length) % photos.length; lbOpen(cur); }
+function lbClose() {
+  document.getElementById('lb').classList.remove('open');
+  document.body.style.overflow = '';
+}
+document.addEventListener('keydown', e => {
+  if (!document.getElementById('lb').classList.contains('open')) return;
+  if (e.key === 'Escape') lbClose();
+  if (e.key === 'ArrowLeft') lbMove(-1);
+  if (e.key === 'ArrowRight') lbMove(1);
+});
 </script>
 
 </body>
