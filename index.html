@@ -117,18 +117,23 @@
     ul { margin: 0.1rem 0 0.3rem 1rem; padding: 0; }
     li { margin-bottom: 0.18rem; font-size: 0.93rem; color: var(--muted); }
 
-    /* ===== HERO VIDEO ===== */
-    .hero-video-wrap {
+    /* ===== HERO VIDEO (Shorts – 9:16) ===== */
+    .hero-short-wrap {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 0.6rem;
+    }
+    .hero-short-inner {
       position: relative;
       width: 100%;
-      padding-bottom: 56.25%;
+      max-width: 340px;
+      aspect-ratio: 9 / 16;
       border-radius: var(--radius-xl);
       overflow: hidden;
-      border: 1px solid rgba(34,197,94,0.3);
-      box-shadow: 0 0 40px rgba(34,197,94,0.12), 0 16px 48px rgba(0,0,0,0.5);
-      margin-bottom: 0.5rem;
+      border: 2px solid rgba(34,197,94,0.45);
+      box-shadow: 0 0 48px rgba(34,197,94,0.18), 0 16px 48px rgba(0,0,0,0.6);
     }
-    .hero-video-wrap iframe {
+    .hero-short-inner iframe {
       position: absolute; inset: 0;
       width: 100%; height: 100%;
       border: none;
@@ -136,9 +141,16 @@
     .hero-video-label {
       font-size: 0.78rem; color: var(--faint);
       display: flex; align-items: center; gap: 0.4rem;
-      margin-top: 0.45rem;
+      margin-top: 0.55rem; justify-content: center;
     }
     .hero-video-label span { color: var(--accent); font-weight: 700; }
+    .yt-shorts-badge {
+      display: inline-flex; align-items: center; gap: 0.3rem;
+      background: #ff0000; color: #fff;
+      font-size: 0.72rem; font-weight: 700;
+      padding: 0.12rem 0.55rem; border-radius: 4px;
+      letter-spacing: 0.04em;
+    }
 
     /* ===== GPX TABLE ===== */
     .gpx-table { width: 100%; border-collapse: collapse; margin-top: 0.5rem; font-size: 0.88rem; }
@@ -212,10 +224,15 @@
       transform: translateY(-2px);
       box-shadow: 0 10px 32px rgba(0,0,0,0.5);
     }
+    /* Standard 16:9 */
     .video-card .yt-wrap {
       position: relative;
       width: 100%;
       padding-bottom: 56.25%;
+    }
+    /* Shorts 9:16 */
+    .video-card .yt-wrap.shorts {
+      padding-bottom: 177.78%;
     }
     .video-card .yt-wrap iframe {
       position: absolute; inset: 0;
@@ -233,6 +250,16 @@
       background: #ff0000;
       color: #fff;
       font-size: 0.65rem;
+      font-weight: 700;
+      padding: 0.05rem 0.35rem;
+      border-radius: 3px;
+      letter-spacing: 0.03em;
+      flex-shrink: 0;
+    }
+    .shorts-badge {
+      background: #ff0000;
+      color: #fff;
+      font-size: 0.62rem;
       font-weight: 700;
       padding: 0.05rem 0.35rem;
       border-radius: 3px;
@@ -339,11 +366,11 @@
         <img src="logo_PfinzPforteRhein.png" alt="hAITour Logo" class="logo-img" width="72" height="72" loading="lazy" />
         <div class="header-text">
           <h1>hAITour: Pfinz → Pforte → Rhein 🚴‍♂️🤖</h1>
-          <p class="sub">Hybride AI/Fahrradtour-Dokumentation – mit Karten, GPX-Tracks, Bildergalerie & Videos.</p>
+          <p class="sub">Hybride AI/Fahrradtour-Dokumentation – mit Karten, GPX-Tracks, Bildergalerie &amp; Videos.</p>
           <div class="badges">
             <img src="https://img.shields.io/badge/view%20on-GitHub%20Pages-blueviolet?style=for-the-badge" alt="GitHub Pages" loading="lazy" />
             <img src="https://img.shields.io/badge/License-MIT-green.svg?style=for-the-badge" alt="MIT" loading="lazy" />
-            <img src="https://img.shields.io/badge/status-in%20tour-orange?style=for-the-badge" alt="Status" loading="lazy" />
+            <img src="https://img.shields.io/badge/status-abgeschlossen%20✅-brightgreen?style=for-the-badge" alt="Status" loading="lazy" />
           </div>
           <div class="chips">
             <span class="chip">🚴‍♂️ Bikepacking</span>
@@ -351,7 +378,7 @@
             <span class="chip">🤖 Hybrid AI Log</span>
             <span class="chip">📥 GPX-Tracks</span>
             <span class="chip">📸 11 Fotos</span>
-            <span class="chip">🎥 4 Videos</span>
+            <span class="chip">🎥 5 Videos</span>
           </div>
         </div>
       </div>
@@ -367,22 +394,24 @@
 <main>
   <div class="shell">
 
-    <!-- ===== HERO VIDEO ===== -->
+    <!-- ===== HERO SHORT ===== -->
     <section style="margin-bottom:1.5rem;">
-      <h2>🎥 Einstieg – Tour auf Video</h2>
-      <p>Das Highlight der hAITour – direkt als Einstieg.</p>
-      <div class="hero-video-wrap">
-        <iframe
-          src="https://www.youtube.com/embed/RSTAwrHcaKQ?rel=0&modestbranding=1"
-          title="hAITour Einstiegsvideo"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowfullscreen
-          loading="lazy"
-        ></iframe>
+      <h2>🎥 Tour-Short – Jetzt direkt ansehen!</h2>
+      <p>Das Highlight der hAITour – als YouTube Short direkt hier abspielbar.</p>
+      <div class="hero-short-wrap">
+        <div class="hero-short-inner">
+          <iframe
+            src="https://www.youtube.com/embed/lu7Zs11XkDc?rel=0&modestbranding=1"
+            title="hAITour – Intro Short"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen
+            loading="lazy"
+          ></iframe>
+        </div>
       </div>
       <div class="hero-video-label">
-        <span>▶ YouTube</span>
-        <span style="color:var(--muted);">youtu.be/RSTAwrHcaKQ</span>
+        <span class="yt-shorts-badge">▶ Shorts</span>
+        <span style="color:var(--muted);">youtube.com/shorts/lu7Zs11XkDc</span>
       </div>
     </section>
 
@@ -419,7 +448,7 @@
 
         <!-- MAP CARDS -->
         <section>
-          <h2>🌍 Karten & Abschnitte</h2>
+          <h2>🌍 Karten &amp; Abschnitte</h2>
           <p>Die Tour von der <strong style="color:var(--text)">Pfinz</strong> über die <strong style="color:var(--text)">Pforte</strong> bis zum <strong style="color:var(--text)">Rhein</strong> in drei Etappen.</p>
           <div class="map-grid">
             <article class="card">
@@ -454,32 +483,38 @@
 
         <!-- VIDEO GALERIE -->
         <section>
-          <h2>🎥 Weitere Videos zur Tour</h2>
-          <p>4 Videos rund um die hAITour – klicke zum Abspielen direkt hier.</p>
+          <h2>🎥 Alle Videos zur Tour</h2>
+          <p>5 Videos – direkt hier abspielen. Shorts im Hochformat, die anderen im 16:9-Format.</p>
           <div class="video-grid">
             <div class="video-card">
               <div class="yt-wrap">
                 <iframe src="https://www.youtube.com/embed/RSTAwrHcaKQ?rel=0&modestbranding=1" title="Video 1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
               </div>
-              <div class="yt-label"><span class="yt-badge">YT</span> Video 1</div>
+              <div class="yt-label"><span class="yt-badge">YT</span> Video 1 – Start &amp; Überblick</div>
             </div>
             <div class="video-card">
               <div class="yt-wrap">
                 <iframe src="https://www.youtube.com/embed/JUY0DWyIJ3w?rel=0&modestbranding=1" title="Video 2" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
               </div>
-              <div class="yt-label"><span class="yt-badge">YT</span> Video 2</div>
+              <div class="yt-label"><span class="yt-badge">YT</span> Video 2 – Teil 1: Pfinz → Pforte</div>
             </div>
             <div class="video-card">
               <div class="yt-wrap">
                 <iframe src="https://www.youtube.com/embed/WQrAl2K4ps8?rel=0&modestbranding=1" title="Video 3" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
               </div>
-              <div class="yt-label"><span class="yt-badge">YT</span> Video 3</div>
+              <div class="yt-label"><span class="yt-badge">YT</span> Video 3 – Teil 2: Pfinztal</div>
             </div>
             <div class="video-card">
               <div class="yt-wrap">
                 <iframe src="https://www.youtube.com/embed/YJrDHmcwbNc?rel=0&modestbranding=1" title="Video 4" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
               </div>
-              <div class="yt-label"><span class="yt-badge">YT</span> Video 4</div>
+              <div class="yt-label"><span class="yt-badge">YT</span> Video 4 – Teil 3: Zum Rhein</div>
+            </div>
+            <div class="video-card">
+              <div class="yt-wrap shorts">
+                <iframe src="https://www.youtube.com/embed/M6jf79YP6Gk?rel=0&modestbranding=1" title="Video 5 – Short" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
+              </div>
+              <div class="yt-label"><span class="shorts-badge">▶ Shorts</span> Video 5 – Bonus-Short</div>
             </div>
           </div>
         </section>
@@ -590,22 +625,23 @@
         <section style="margin-top:1.1rem;">
           <h2>✅ Todo</h2>
           <ul style="list-style:none; margin-left:0; font-size:0.87rem; color:var(--muted); line-height:2;">
-            <li>✅ Repo erstellt & public</li>
-            <li>✅ README mit Shields & Emojis</li>
+            <li>✅ Repo erstellt &amp; public</li>
+            <li>✅ README mit Shields &amp; Emojis</li>
             <li>✅ GitHub Pages index.html</li>
             <li>✅ Logo generiert</li>
             <li>✅ 11 Fotos hochgeladen</li>
             <li>✅ Bildergalerie mit Lightbox</li>
-            <li>✅ 4 YouTube-Videos eingebunden</li>
-            <li>⬜ GitHub Pages aktivieren</li>
-            <li>⬜ Kartenscreenshots einfügen</li>
-            <li>⬜ GPX-Tracks hochladen</li>
+            <li>✅ 5 Videos eingebunden (inkl. Shorts)</li>
+            <li>✅ Intro-Short als Hero-Video</li>
+            <li>⛾ GitHub Pages aktivieren</li>
+            <li>⛾ Kartenscreenshots einfügen</li>
+            <li>⛾ GPX-Tracks hochladen</li>
           </ul>
         </section>
 
         <section style="margin-top:1.1rem;">
           <h2>⚖️ Lizenz</h2>
-          <p>Dieses Projekt steht unter der <strong style="color:var(--text)">MIT-Lizenz</strong>. Fotos & Texte: privat.</p>
+          <p>Dieses Projekt steht unter der <strong style="color:var(--text)">MIT-Lizenz</strong>. Fotos &amp; Texte: privat.</p>
           <a class="btn-dl" href="https://github.com/jbkunama1/hAITour.Pfinz.I.Pforte.bis.Rhein" target="_blank" rel="noopener" style="margin-top:0.5rem; display:inline-flex;">🐙 GitHub Repo</a>
         </section>
       </div><!-- /sidebar -->
