@@ -205,13 +205,34 @@
     }
     .btn-row { display: flex; gap: 0.38rem; flex-wrap: wrap; margin-top: 0.5rem; }
 
-    /* ===== VIDEO GALLERY ===== */
-    .video-grid {
+    /* ===== VIDEO GALERIE ===== */
+    /*
+      Layout: 5 Videos in zwei Reihen
+      Reihe 1: Videos 1–4 nebeneinander (16:9)
+      Reihe 2: Video 5 zentriert, etwas breiter (16:9 oder 9:16 je nach Inhalt)
+    */
+    .video-grid-top {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      grid-template-columns: repeat(4, 1fr);
       gap: 0.75rem;
       margin-top: 0.7rem;
     }
+    @media (max-width: 900px) {
+      .video-grid-top { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 500px) {
+      .video-grid-top { grid-template-columns: 1fr; }
+    }
+    .video-grid-bottom {
+      display: flex;
+      justify-content: center;
+      margin-top: 0.75rem;
+    }
+    .video-grid-bottom .video-card {
+      width: 100%;
+      max-width: 380px;
+    }
+
     .video-card {
       border-radius: var(--radius-lg);
       overflow: hidden;
@@ -256,14 +277,13 @@
       letter-spacing: 0.03em;
       flex-shrink: 0;
     }
-    .shorts-badge {
-      background: #ff0000;
-      color: #fff;
-      font-size: 0.62rem;
+    .video-num-badge {
+      background: rgba(34,197,94,0.18);
+      color: var(--accent-text);
+      font-size: 0.65rem;
       font-weight: 700;
-      padding: 0.05rem 0.35rem;
+      padding: 0.05rem 0.4rem;
       border-radius: 3px;
-      letter-spacing: 0.03em;
       flex-shrink: 0;
     }
 
@@ -483,38 +503,64 @@
 
         <!-- VIDEO GALERIE -->
         <section>
-          <h2>🎥 Alle Videos zur Tour</h2>
-          <p>5 Videos – direkt hier abspielen. Shorts im Hochformat, die anderen im 16:9-Format.</p>
-          <div class="video-grid">
+          <h2>🎥 Videogalerie – 5 Videos zur Tour</h2>
+          <p>Alle 5 Videos direkt abspielen – Videos 1–4 im 16:9-Format, Video 5 im Hochformat (Shorts).</p>
+
+          <!-- Reihe 1: Videos 1–4 -->
+          <div class="video-grid-top">
             <div class="video-card">
               <div class="yt-wrap">
-                <iframe src="https://www.youtube.com/embed/RSTAwrHcaKQ?rel=0&modestbranding=1" title="Video 1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+                <iframe src="https://www.youtube.com/embed/RSTAwrHcaKQ?rel=0&modestbranding=1" title="Video 1 – Start & Überblick" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
               </div>
-              <div class="yt-label"><span class="yt-badge">YT</span> Video 1 – Start &amp; Überblick</div>
+              <div class="yt-label">
+                <span class="video-num-badge">01</span>
+                <span class="yt-badge">YT</span>
+                Start &amp; Überblick
+              </div>
             </div>
             <div class="video-card">
               <div class="yt-wrap">
-                <iframe src="https://www.youtube.com/embed/JUY0DWyIJ3w?rel=0&modestbranding=1" title="Video 2" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+                <iframe src="https://www.youtube.com/embed/JUY0DWyIJ3w?rel=0&modestbranding=1" title="Video 2 – Teil 1: Pfinz → Pforte" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
               </div>
-              <div class="yt-label"><span class="yt-badge">YT</span> Video 2 – Teil 1: Pfinz → Pforte</div>
+              <div class="yt-label">
+                <span class="video-num-badge">02</span>
+                <span class="yt-badge">YT</span>
+                Teil 1: Pfinz → Pforte
+              </div>
             </div>
             <div class="video-card">
               <div class="yt-wrap">
-                <iframe src="https://www.youtube.com/embed/WQrAl2K4ps8?rel=0&modestbranding=1" title="Video 3" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+                <iframe src="https://www.youtube.com/embed/WQrAl2K4ps8?rel=0&modestbranding=1" title="Video 3 – Teil 2: Pfinztal" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
               </div>
-              <div class="yt-label"><span class="yt-badge">YT</span> Video 3 – Teil 2: Pfinztal</div>
+              <div class="yt-label">
+                <span class="video-num-badge">03</span>
+                <span class="yt-badge">YT</span>
+                Teil 2: Pfinztal
+              </div>
             </div>
             <div class="video-card">
               <div class="yt-wrap">
-                <iframe src="https://www.youtube.com/embed/YJrDHmcwbNc?rel=0&modestbranding=1" title="Video 4" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+                <iframe src="https://www.youtube.com/embed/YJrDHmcwbNc?rel=0&modestbranding=1" title="Video 4 – Teil 3: Zum Rhein" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
               </div>
-              <div class="yt-label"><span class="yt-badge">YT</span> Video 4 – Teil 3: Zum Rhein</div>
+              <div class="yt-label">
+                <span class="video-num-badge">04</span>
+                <span class="yt-badge">YT</span>
+                Teil 3: Zum Rhein
+              </div>
             </div>
+          </div>
+
+          <!-- Reihe 2: Video 5 zentriert -->
+          <div class="video-grid-bottom">
             <div class="video-card">
               <div class="yt-wrap shorts">
-                <iframe src="https://www.youtube.com/embed/M6jf79YP6Gk?rel=0&modestbranding=1" title="Video 5 – Short" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
+                <iframe src="https://www.youtube.com/embed/M6jf79YP6Gk?rel=0&modestbranding=1" title="Video 5 – Tour-Short" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
               </div>
-              <div class="yt-label"><span class="shorts-badge">▶ Shorts</span> Video 5 – Bonus-Short</div>
+              <div class="yt-label">
+                <span class="video-num-badge">05</span>
+                <span class="yt-badge">YT</span>
+                Tour-Short
+              </div>
             </div>
           </div>
         </section>
@@ -631,7 +677,7 @@
             <li>✅ Logo generiert</li>
             <li>✅ 11 Fotos hochgeladen</li>
             <li>✅ Bildergalerie mit Lightbox</li>
-            <li>✅ 5 Videos eingebunden (inkl. Shorts)</li>
+            <li>✅ 5 Videos eingebunden (Galerie)</li>
             <li>✅ Intro-Short als Hero-Video</li>
             <li>⛾ GitHub Pages aktivieren</li>
             <li>⛾ Kartenscreenshots einfügen</li>
