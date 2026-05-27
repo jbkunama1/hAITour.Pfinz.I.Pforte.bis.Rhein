@@ -67,13 +67,13 @@
   </tr>
 </table>
 
-### 📱 Bonus-Short
+### 📱 Video 5
 
 <table>
   <tr>
     <td align="center" width="25%">
       <a href="https://youtube.com/shorts/M6jf79YP6Gk" target="_blank">
-        <img src="https://img.youtube.com/vi/M6jf79YP6Gk/hqdefault.jpg" alt="Video 5 – Shorts" width="200" style="border-radius:8px;" />
+        <img src="https://img.youtube.com/vi/M6jf79YP6Gk/hqdefault.jpg" alt="Video 5" width="200" style="border-radius:8px;" />
       </a>
       <br /><sub><b>📱 Video 5 – Shorts-Clip der Tour &nbsp;<img src="https://img.shields.io/badge/YouTube-Shorts-ff0000?style=flat-square&amp;logo=youtube" alt="Shorts" /></b></sub>
     </td>
@@ -218,6 +218,31 @@ Die Tour ist in drei Abschnitte aufgeteilt:
 
 ---
 
+## ⌚ Fitnessdaten der Tour – Smartwatch-Aufzeichnung
+
+> Die folgenden Screenshots meiner Fitness-Uhr zeigen die aufgezeichneten Fahrdaten der gesamten Tour – als grobe Einschätzung zu Distanz, Zeit und Belastung.
+
+<table>
+  <tr>
+    <td align="center" width="50%">
+      <a href="Screenshot_Hinweg.jpg">
+        <img src="Screenshot_Hinweg.jpg" alt="Smartwatch-Daten Hinweg" width="340" style="border-radius:10px;" />
+      </a>
+      <br /><sub><b>📊 Hinweg – Fahrdaten der Fitness-Uhr</b></sub>
+    </td>
+    <td align="center" width="50%">
+      <a href="Screenshot_Rückweg.jpg">
+        <img src="Screenshot_Rückweg.jpg" alt="Smartwatch-Daten Rückweg" width="340" style="border-radius:10px;" />
+      </a>
+      <br /><sub><b>📊 Rückweg – Fahrdaten der Fitness-Uhr</b></sub>
+    </td>
+  </tr>
+</table>
+
+<p align="center"><sub><i>⌚ Aufgezeichnet mit Fitness-Uhr · Werte dienen zur groben Orientierung</i></sub></p>
+
+---
+
 ## 🧱 Projektstruktur
 
 ```text
@@ -226,6 +251,8 @@ hAITour.Pfinz.I.Pforte.bis.Rhein/
 ├─ index.html                 ← GitHub Pages Startseite
 ├─ LICENSE                    ← MIT Lizenz
 ├─ logo_PfinzPforteRhein.png  ← Tour-Logo
+├─ Screenshot_Hinweg.jpg      ← Fitnessdaten Hinweg (Smartwatch)
+├─ Screenshot_Rückweg.jpg     ← Fitnessdaten Rückweg (Smartwatch)
 ├─ images/                    ← Fotos der Tour (Wegpunkte)
 │   ├─ teil1/  (4 Bilder)
 │   ├─ teil2/  (4 Bilder)
