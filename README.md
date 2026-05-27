@@ -18,15 +18,21 @@
 
 ---
 
-## 🎬 Tour-Video – Einstieg
+## 🎬 Tour-Highlight – Jetzt ansehen!
 
 <p align="center">
-  <a href="https://youtu.be/RSTAwrHcaKQ" target="_blank">
-    <img src="https://img.youtube.com/vi/RSTAwrHcaKQ/maxresdefault.jpg" alt="▶️ hAITour – Einstieg" width="640" style="border-radius:10px; border: 3px solid #4CAF50;" />
+  <a href="https://youtube.com/shorts/lu7Zs11XkDc" target="_blank">
+    <img src="https://img.youtube.com/vi/lu7Zs11XkDc/maxresdefault.jpg" alt="▶️ hAITour – Jetzt auf YouTube ansehen" width="480" style="border-radius:14px;" />
   </a>
-  <br />
-  <sub><b>▶️ Klicken zum Abspielen – Einstiegsvideo zur Tour</b></sub>
 </p>
+
+<p align="center">
+  <a href="https://youtube.com/shorts/lu7Zs11XkDc" target="_blank">
+    <img src="https://img.shields.io/badge/▶%EF%B8%8F%20Jetzt%20ansehen-YouTube%20Shorts-FF0000?style=for-the-badge&logo=youtube&logoColor=white" alt="Jetzt auf YouTube ansehen" />
+  </a>
+</p>
+
+<p align="center"><sub><i>📱 YouTube Shorts – Klick auf das Bild oder den Button → direkter Start auf YouTube</i></sub></p>
 
 ---
 
