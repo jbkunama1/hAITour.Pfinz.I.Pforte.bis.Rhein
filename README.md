@@ -38,7 +38,7 @@
       <a href="https://youtu.be/RSTAwrHcaKQ" target="_blank">
         <img src="https://img.youtube.com/vi/RSTAwrHcaKQ/hqdefault.jpg" alt="Video 1" width="200" style="border-radius:8px;" />
       </a>
-      <br /><sub><b>🎬 Video 1 – Start & Überblick</b></sub>
+      <br /><sub><b>🎬 Video 1 – Start &amp; Überblick</b></sub>
     </td>
     <td align="center" width="25%">
       <a href="https://youtu.be/JUY0DWyIJ3w" target="_blank">
@@ -58,6 +58,20 @@
       </a>
       <br /><sub><b>🌊 Video 4 – Teil 3: Zum Rhein</b></sub>
     </td>
+  </tr>
+</table>
+
+### 📱 Bonus-Short
+
+<table>
+  <tr>
+    <td align="center" width="25%">
+      <a href="https://youtube.com/shorts/M6jf79YP6Gk" target="_blank">
+        <img src="https://img.youtube.com/vi/M6jf79YP6Gk/hqdefault.jpg" alt="Video 5 – Shorts" width="200" style="border-radius:8px;" />
+      </a>
+      <br /><sub><b>📱 Video 5 – Shorts-Clip der Tour &nbsp;<img src="https://img.shields.io/badge/YouTube-Shorts-ff0000?style=flat-square&amp;logo=youtube" alt="Shorts" /></b></sub>
+    </td>
+    <td width="75%"></td>
   </tr>
 </table>
 
