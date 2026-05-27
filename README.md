@@ -18,6 +18,53 @@
 
 ---
 
+## 🎬 Tour-Video – Einstieg
+
+<p align="center">
+  <a href="https://youtu.be/RSTAwrHcaKQ" target="_blank">
+    <img src="https://img.youtube.com/vi/RSTAwrHcaKQ/maxresdefault.jpg" alt="▶️ hAITour – Einstieg" width="640" style="border-radius:10px; border: 3px solid #4CAF50;" />
+  </a>
+  <br />
+  <sub><b>▶️ Klicken zum Abspielen – Einstiegsvideo zur Tour</b></sub>
+</p>
+
+---
+
+## 🎥 Videotagebuch der Tour
+
+<table>
+  <tr>
+    <td align="center" width="25%">
+      <a href="https://youtu.be/RSTAwrHcaKQ" target="_blank">
+        <img src="https://img.youtube.com/vi/RSTAwrHcaKQ/hqdefault.jpg" alt="Video 1" width="200" style="border-radius:8px;" />
+      </a>
+      <br /><sub><b>🎬 Video 1 – Start & Überblick</b></sub>
+    </td>
+    <td align="center" width="25%">
+      <a href="https://youtu.be/JUY0DWyIJ3w" target="_blank">
+        <img src="https://img.youtube.com/vi/JUY0DWyIJ3w/hqdefault.jpg" alt="Video 2" width="200" style="border-radius:8px;" />
+      </a>
+      <br /><sub><b>🚴 Video 2 – Teil 1: Pfinz → Pforte</b></sub>
+    </td>
+    <td align="center" width="25%">
+      <a href="https://youtu.be/WQrAl2K4ps8" target="_blank">
+        <img src="https://img.youtube.com/vi/WQrAl2K4ps8/hqdefault.jpg" alt="Video 3" width="200" style="border-radius:8px;" />
+      </a>
+      <br /><sub><b>🌾 Video 3 – Teil 2: Pfinztal</b></sub>
+    </td>
+    <td align="center" width="25%">
+      <a href="https://youtu.be/YJrDHmcwbNc" target="_blank">
+        <img src="https://img.youtube.com/vi/YJrDHmcwbNc/hqdefault.jpg" alt="Video 4" width="200" style="border-radius:8px;" />
+      </a>
+      <br /><sub><b>🌊 Video 4 – Teil 3: Zum Rhein</b></sub>
+    </td>
+  </tr>
+</table>
+
+> 💡 **Tipp:** Auf ein Thumbnail klicken → direkt zu YouTube!
+
+---
+
 ## 🌍 Überblick
 
 Diese Repository begleitet meine Fahrradtour von der **Pfinz** über die **Pforte** bis zum **Rhein**.
