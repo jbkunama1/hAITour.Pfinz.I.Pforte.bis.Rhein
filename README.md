@@ -5,9 +5,7 @@
 </p>
 
 <p align="center">
-  <a href="https://www.buymeacoffee.com/highfish">
-    <img src="https://cdn.buymeacoffee.com/buttons/default-orange.png" width="120" height="28" alt="Buy me a coffee" />
-  </a>
+  [![Buy me a coffee](https://img.shields.io/badge/Buy%20Me%20A%20Coffee-ffdd00?style=for-the-badge&logo=buy-me-a-coffee&logoColor=black)](https://www.buymeacoffee.com/highfish)
 </p>
 
 [![GitHub Pages](https://img.shields.io/badge/view%20on-GitHub%20Pages-blueviolet?style=for-the-badge)](https://github.com/jbkunama1/hAITour.Pfinz.I.Pforte.bis.Rhein)
